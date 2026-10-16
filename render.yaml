@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: student-portal
+    runtime: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn student_portal.wsgi:application"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      - key: DJANGO_SUPERUSER_USERNAME
+        sync: false
+      - key: DJANGO_SUPERUSER_PASSWORD
+        sync: false
+      - key: DJANGO_SUPERUSER_EMAIL
+        sync: false

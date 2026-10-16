@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Course | College ERP</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme:{
+    extend:{
+      colors:{
+        primary:'#0D9488',
+        secondary:'#F97316'
+      }
+    }
+  }
+}
+</script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-teal-100 via-orange-100 to-yellow-50">
+
+<!-- Background -->
+<div class="fixed inset-0 -z-10">
+<img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6"
+class="w-full h-full object-cover opacity-20">
+</div>
+
+<div class="min-h-screen flex items-center justify-center p-6">
+
+<div class="w-full max-w-6xl bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10">
+
+<!-- Header -->
+<div class="text-center mb-10">
+<h1 class="text-4xl font-extrabold text-primary mb-3">Add New Course</h1>
+<p class="text-gray-600">Enter complete academic course information</p>
+</div>
+
+<!-- Django Form -->
+<form method="POST" enctype="multipart/form-data" class="space-y-10">
+    {% csrf_token %}
+
+    <!-- Basic Information -->
+    <div>
+        <h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Basic Information</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div>
+                <label class="block text-sm font-medium mb-1">Course Name *</label>
+                <input type="text" name="coursename" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Course Code *</label>
+                <input type="text" name="coursecode" required placeholder="CS101"
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Department *</label>
+                <select name="department" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+                    <option value="">Select Department</option>
+                    <option>Computer Science</option>
+                    <option>Electronics</option>
+                    <option>Mechanical</option>
+                    <option>Commerce</option>
+                    <option>Management</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Course Type *</label>
+                <select name="coursetype" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+                    <option value="">Select Type</option>
+                    <option>Theory</option>
+                    <option>Practical</option>
+                    <option>Lab</option>
+                    <option>Project</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Credits *</label>
+                <input type="number" name="credits" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Semester *</label>
+                <select name="semester" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+                    <option value="">Select Semester</option>
+                    <option>Semester 1</option>
+                    <option>Semester 2</option>
+                    <option>Semester 3</option>
+                    <option>Semester 4</option>
+                    <option>Semester 5</option>
+                    <option>Semester 6</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Academic Details -->
+    <div>
+        <h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Academic Details</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div>
+                <label class="block text-sm font-medium mb-1">Assigned Faculty *</label>
+                <input type="text" name="faculty" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Maximum Students *</label>
+                <input type="number" name="maxstudents" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Duration (weeks) *</label>
+                <input type="number" name="duration" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Start Date *</label>
+                <input type="date" name="startdate" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">End Date *</label>
+                <input type="date" name="enddate" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium mb-1">Course Fee *</label>
+                <input type="number" name="coursefee" required
+                class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+            </div>
+        </div>
+    </div>
+
+    <!-- Description -->
+    <div>
+        <h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Course Description</h2>
+        <textarea name="description" rows="4" required
+        class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary"></textarea>
+    </div>
+
+    <!-- File Upload -->
+    <div>
+        <h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Upload Course Material</h2>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <label class="block text-sm font-medium mb-1">Syllabus (PDF)</label>
+                <input type="file" name="syllabus" accept=".pdf"
+                class="w-full border rounded-xl p-3">
+            </div>
+            <div>
+                <label class="block text-sm font-medium mb-1">Course Image</label>
+                <input type="file" name="image" accept="image/*"
+                class="w-full border rounded-xl p-3">
+            </div>
+        </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-center space-x-6 pt-6">
+        <button type="reset" class="px-8 py-3 bg-gray-300 rounded-xl hover:bg-gray-400">Reset</button>
+        <button type="submit" class="px-10 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:scale-105">Add Course</button>
+    </div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

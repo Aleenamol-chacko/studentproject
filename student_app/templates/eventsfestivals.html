@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events & Festivals | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Research</a>
+                    <a href="#" class="text-indigo-600 font-bold">Campus Life</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Events & Festivals</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Experience the vibrant campus life through our exciting events, cultural festivals, and celebrations throughout the year.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <button class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold btn-hover">
+                Calendar 2026
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-indigo-600 transition">
+                Buy Tickets
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Events -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Featured Events</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <!-- Spring Festival -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-64 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-gradient-to-r from-pink-600 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                    Annual Festival
+                </div>
+                <div class="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg">
+                    <div class="text-2xl font-black">MARCH 15-17</div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">Spring Festival 2026</h3>
+                <p class="text-gray-600 mb-4">Our biggest celebration of the year featuring music concerts, food festivals, cultural performances, and amazing activities for everyone.</p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-black text-indigo-600">3 Days</div>
+                        <div class="text-sm text-gray-600">Non-stop Entertainment</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-black text-purple-600">10,000+</div>
+                        <div class="text-sm text-gray-600">Expected Attendees</div>
+                    </div>
+                </div>
+                <button class="bg-gradient-to-r from-pink-600 to-purple-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition w-full">
+                    Get Early Bird Tickets
+                </button>
+            </div>
+        </div>
+        
+        <!-- Tech Summit -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-64 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                    Tech Conference
+                </div>
+                <div class="absolute bottom-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg">
+                    <div class="text-2xl font-black">APRIL 8-10</div>
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-2xl font-bold mb-3 text-gray-900">Innovation Tech Summit</h3>
+                <p class="text-gray-600 mb-4">Premier technology conference featuring industry leaders, startup showcases, hackathons, and cutting-edge tech demonstrations.</p>
+                <div class="grid grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                        <div class="text-2xl font-black text-blue-600">50+</div>
+                        <div class="text-sm text-gray-600">Expert Speakers</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-2xl font-black text-cyan-600">100+</div>
+                        <div class="text-sm text-gray-600">Tech Companies</div>
+                    </div>
+                </div>
+                <button class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white px-6 py-3 rounded-xl font-bold hover:shadow-lg transition w-full">
+                    Register Now
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Event Categories -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Event Categories</h2>
+    
+    <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎭
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Cultural Festivals</h3>
+            <p class="text-gray-600 text-sm">8 major events yearly</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🔬
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Academic Events</h3>
+            <p class="text-gray-600 text-sm">15+ conferences</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🏆
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Sports Events</h3>
+            <p class="text-gray-600 text-sm">20+ tournaments</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎵
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Music & Arts</h3>
+            <p class="text-gray-600 text-sm">30+ performances</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎓
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Graduation Events</h3>
+            <p class="text-gray-600 text-sm">4 ceremonies yearly</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🌍
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">International Events</h3>
+            <p class="text-gray-600 text-sm">12 cultural celebrations</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                💼
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Career Events</h3>
+            <p class="text-gray-600 text-sm">10+ job fairs</p>
+        </div>
+        
+        <div class="text-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition cursor-pointer">
+            <div class="w-16 h-16 bg-gradient-to-r from-emerald-500 to-green-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎪
+            </div>
+            <h3 class="font-bold text-gray-900 mb-2">Social Events</h3>
+            <p class="text-gray-600 text-sm">25+ gatherings</p>
+        </div>
+    </div>
+</div>
+
+<!-- Upcoming Events Calendar -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Upcoming Events</h2>
+    
+    <div class="space-y-6">
+        <!-- March Events -->
+        <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">March 2026</h3>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-pink-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        15
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">Spring Festival Opening Ceremony</h4>
+                        <p class="text-gray-600 text-sm">Main Quad • 6:00 PM</p>
+                    </div>
+                    <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Cultural</span>
+                </div>
+                
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        22
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">Career Fair 2026</h4>
+                        <p class="text-gray-600 text-sm">Sports Complex • 10:00 AM</p>
+                    </div>
+                    <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Career</span>
+                </div>
+                
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        28
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">Basketball Championship Finals</h4>
+                        <p class="text-gray-600 text-sm">Arena • 7:00 PM</p>
+                    </div>
+                    <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Sports</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- April Events -->
+        <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-4">April 2026</h3>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        8
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">Innovation Tech Summit</h4>
+                        <p class="text-gray-600 text-sm">Conference Center • 9:00 AM</p>
+                    </div>
+                    <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Tech</span>
+                </div>
+                
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        12
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">Spring Music Concert</h4>
+                        <p class="text-gray-600 text-sm">Auditorium • 8:00 PM</p>
+                    </div>
+                    <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Music</span>
+                </div>
+                
+                <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-xl hover:bg-gray-50 transition">
+                    <div class="w-16 h-16 bg-gradient-to-r from-red-500 to-rose-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                        20
+                    </div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-gray-900">International Food Festival</h4>
+                        <p class="text-gray-600 text-sm">Student Union • 11:00 AM</p>
+                    </div>
+                    <span class="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">Cultural</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold btn-hover">
+            View Full Calendar
+        </button>
+    </div>
+</div>
+
+<!-- Event Statistics -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Campus Events by Numbers</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">150+</div>
+            <div class="text-lg text-white/90">Events Yearly</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">50,000+</div>
+            <div class="text-lg text-white/90">Total Attendees</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">200+</div>
+            <div class="text-lg text-white/90">Student Performers</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">95%</div>
+            <div class="text-lg text-white/90">Student Satisfaction</div>
+        </div>
+    </div>
+</div>
+
+<!-- Host Your Event -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Host Your Own Event</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Event Planning Support</h3>
+            <p class="text-gray-600 mb-6">
+                Our Student Activities Office provides comprehensive support for students who want to organize events on campus.
+            </p>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Venue Booking</h4>
+                        <p class="text-gray-600 text-sm">Access to auditoriums, outdoor spaces, and special event venues</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Budget Support</h4>
+                        <p class="text-gray-600 text-sm">Funding opportunities and financial planning assistance</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Marketing & Promotion</h4>
+                        <p class="text-gray-600 text-sm">Professional marketing support and campus-wide promotion</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Technical Support</h4>
+                        <p class="text-gray-600 text-sm">Audio/visual equipment and technical assistance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Event Application Process</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Step 1: Submit Proposal</h4>
+                    <p class="text-gray-600 text-sm">Complete the event planning form with details about your event concept</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Step 2: Review Meeting</h4>
+                    <p class="text-gray-600 text-sm">Meet with the Student Activities team to discuss logistics and requirements</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Step 3: Final Approval</h4>
+                    <p class="text-gray-600 text-sm">Receive official approval and begin event planning with full support</p>
+                </div>
+            </div>
+            
+            <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition w-full mt-6">
+                Download Event Application
+            </button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

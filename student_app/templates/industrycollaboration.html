@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Industry Collaboration | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-indigo-600 font-bold">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Industry Collaboration</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Building powerful partnerships between academia and industry to drive innovation, solve real-world challenges, and create economic impact.
+        </p>
+    </div>
+</div>
+
+<!-- Partnership Statistics -->
+<div class="grid md:grid-cols-4 gap-6 mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">150+</div>
+        <div class="text-white/90">Industry Partners</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">85</div>
+        <div class="text-white/90">Active Projects</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">$28M</div>
+        <div class="text-white/90">Industry Investment</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">45</div>
+        <div class="text-white/90">Technologies Licensed</div>
+    </div>
+</div>
+
+<!-- Featured Partners -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Strategic Industry Partners</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tech Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 text-2xl font-bold mx-auto mb-4">
+                TC
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">TechCorp International</h3>
+            <p class="text-gray-600 mb-4">Global technology leader specializing in AI, cloud computing, and enterprise software solutions.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 5 years</p>
+                <p>🔬 12 Joint Research Projects</p>
+                <p>👥 25 Internships Annually</p>
+                <p>💰 $3.2M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">AI/ML</span>
+                <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Cloud Computing</span>
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Software</span>
+            </div>
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+        
+        <!-- Healthcare Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center text-green-600 text-2xl font-bold mx-auto mb-4">
+                MH
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">MedHealth Systems</h3>
+            <p class="text-gray-600 mb-4">Leading healthcare technology company developing innovative medical devices and digital health solutions.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 3 years</p>
+                <p>🔬 8 Joint Research Projects</p>
+                <p>👥 15 Internships Annually</p>
+                <p>💰 $2.8M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Healthcare</span>
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Medical Devices</span>
+                <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Biotech</span>
+            </div>
+            <button class="bg-green-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+        
+        <!-- Energy Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600 text-2xl font-bold mx-auto mb-4">
+                EG
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">EnergyGlobal Solutions</h3>
+            <p class="text-gray-600 mb-4">Renewable energy company focused on sustainable power generation and energy storage technologies.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 4 years</p>
+                <p>🔬 10 Joint Research Projects</p>
+                <p>👥 20 Internships Annually</p>
+                <p>💰 $4.1M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded text-xs">Renewable Energy</span>
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Sustainability</span>
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Storage</span>
+            </div>
+            <button class="bg-amber-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-amber-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+        
+        <!-- Finance Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center text-purple-600 text-2xl font-bold mx-auto mb-4">
+                FI
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">FinanceInnovate Group</h3>
+            <p class="text-gray-600 mb-4">Financial technology company developing blockchain, AI, and data analytics solutions for modern banking.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 2 years</p>
+                <p>🔬 6 Joint Research Projects</p>
+                <p>👥 12 Internships Annually</p>
+                <p>💰 $1.9M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">FinTech</span>
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Blockchain</span>
+                <span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">AI</span>
+            </div>
+            <button class="bg-purple-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+        
+        <!-- Manufacturing Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center text-red-600 text-2xl font-bold mx-auto mb-4">
+                AM
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Advanced Manufacturing Co.</h3>
+            <p class="text-gray-600 mb-4">Industrial automation and robotics company specializing in smart manufacturing solutions.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 6 years</p>
+                <p>🔬 15 Joint Research Projects</p>
+                <p>👥 30 Internships Annually</p>
+                <p>💰 $5.5M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-red-100 text-red-700 px-2 py-1 rounded text-xs">Robotics</span>
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Automation</span>
+                <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">IoT</span>
+            </div>
+            <button class="bg-red-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-red-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+        
+        <!-- Aerospace Partner -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition card-hover">
+            <div class="w-16 h-16 bg-cyan-100 rounded-xl flex items-center justify-center text-cyan-600 text-2xl font-bold mx-auto mb-4">
+                AS
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">AeroSpace Dynamics</h3>
+            <p class="text-gray-600 mb-4">Aerospace technology company developing next-generation aviation and space exploration systems.</p>
+            <div class="space-y-2 text-sm text-gray-600 mb-4">
+                <p>🤝 Partnership: 3 years</p>
+                <p>🔬 9 Joint Research Projects</p>
+                <p>👥 18 Internships Annually</p>
+                <p>💰 $3.7M Total Investment</p>
+            </div>
+            <div class="flex flex-wrap gap-2 mb-4">
+                <span class="bg-cyan-100 text-cyan-700 px-2 py-1 rounded text-xs">Aerospace</span>
+                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs">Defense</span>
+                <span class="bg-purple-100 text-purple-700 px-2 py-1 rounded text-xs">Space</span>
+            </div>
+            <button class="bg-cyan-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-cyan-700 transition w-full">
+                View Partnership Details
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Collaboration Programs -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Collaboration Programs</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🔬
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Joint Research</h3>
+            <p class="text-gray-600 mb-4">Collaborative research projects addressing industry challenges and developing innovative solutions.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-2 mb-4">
+                <li>• Co-funded research initiatives</li>
+                <li>• Shared intellectual property</li>
+                <li>• Technology transfer programs</li>
+                <li>• Patent development</li>
+            </ul>
+            <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition w-full">
+                Learn More
+            </button>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎓
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Talent Pipeline</h3>
+            <p class="text-gray-600 mb-4">Developing future workforce through internships, co-op programs, and specialized training.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-2 mb-4">
+                <li>• Paid internship programs</li>
+                <li>• Co-op education opportunities</li>
+                <li>• Industry-specific curriculum</li>
+                <li>• Career development programs</li>
+            </ul>
+            <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                Learn More
+            </button>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                💡
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Innovation Hub</h3>
+            <p class="text-gray-600 mb-4">Startup incubation and technology commercialization support for emerging innovations.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-2 mb-4">
+                <li>• Startup incubation programs</li>
+                <li>• Technology licensing</li>
+                <li>• Venture capital connections</li>
+                <li>• Market validation support</li>
+            </ul>
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                Learn More
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Success Stories -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Success Stories</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🚀
+            </div>
+            <h3 class="text-xl font-bold mb-3">AI-Predictive Maintenance System</h3>
+            <p class="text-white/90 mb-4">
+                Collaboration with Advanced Manufacturing Co. developed an AI system that predicts 
+                equipment failures with 98% accuracy, saving millions in downtime costs.
+            </p>
+            <div class="space-y-2 text-white/80 text-sm">
+                <p>💰 $15M Annual Savings for Partner</p>
+                <p>🏆 Industry Innovation Award 2025</p>
+                <p>📈 Deployed in 50+ Facilities</p>
+            </div>
+        </div>
+        
+        <div>
+            <div class="w-16 h-16 bg-white/20 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                ⚕️
+            </div>
+            <h3 class="text-xl font-bold mb-3">Rapid Diagnostic Platform</h3>
+            <p class="text-white/90 mb-4">
+                Partnership with MedHealth Systems created a portable diagnostic device that 
+                delivers lab-quality results in minutes, revolutionizing point-of-care testing.
+            </p>
+            <div class="space-y-2 text-white/80 text-sm">
+                <p>💰 $25M Market Value Created</p>
+                <p>🏆 FDA Breakthrough Device Designation</p>
+                <p>🌍 Available in 20+ Countries</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Partnership Opportunities -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Partnership Opportunities</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Benefits of Partnership</h3>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Access to Research Excellence</h4>
+                        <p class="text-gray-600 text-sm">Work with world-class researchers and cutting-edge facilities</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Talent Pipeline</h4>
+                        <p class="text-gray-600 text-sm">Recruit top talent and develop customized workforce programs</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Innovation Acceleration</h4>
+                        <p class="text-gray-600 text-sm">Fast-track R&D and bring innovations to market faster</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-start space-x-3">
+                    <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 text-sm mt-1">
+                        ✓
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Intellectual Property</h4>
+                        <p class="text-gray-600 text-sm">Joint IP development and licensing opportunities</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Partnership Levels</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Strategic Partner</h4>
+                    <p class="text-gray-600 text-sm mb-2">Long-term collaboration with multi-project engagement</p>
+                    <p class="text-indigo-600 font-bold">$500K+ Annual Investment</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Research Partner</h4>
+                    <p class="text-gray-600 text-sm mb-2">Project-specific research collaboration</p>
+                    <p class="text-purple-600 font-bold">$100K - $500K Investment</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Innovation Partner</h4>
+                    <p class="text-gray-600 text-sm mb-2">Startup incubation and technology licensing</p>
+                    <p class="text-green-600 font-bold">$50K - $100K Investment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold btn-hover">
+            Become a Partner
+        </button>
+    </div>
+</div>
+
+<!-- Contact Partnership Team -->
+<div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8">
+    <h2 class="text-3xl font-black mb-6">Industry Partnership Office</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4">Contact Information</h3>
+            <div class="space-y-3 text-white/90">
+                <p>📍 Building 1, Room 301</p>
+                <p>📞 +1 (800) PARTNERS</p>
+                <p>📞 +1 (800) 727-8367</p>
+                <p>📧 partnerships@aetherium.edu</p>
+                <p>🕐 Monday - Friday: 8:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">Schedule a Consultation</h3>
+            <p class="text-white/90 mb-4">
+                Meet with our partnership team to explore collaboration opportunities tailored to your organization's needs.
+            </p>
+            <div class="space-y-3">
+                <button class="bg-white text-green-600 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition w-full">
+                    Schedule Partnership Meeting
+                </button>
+                <button class="border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-green-600 transition w-full">
+                    Download Partnership Guide
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

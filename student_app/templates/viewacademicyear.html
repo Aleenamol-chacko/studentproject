@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View Academic Year | Student Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-slate-100 via-sky-50 to-blue-100 flex">
+
+<!-- Background -->
+<div class="fixed inset-0 -z-10">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+class="w-full h-full object-cover opacity-20">
+</div>
+
+<!-- Sidebar -->
+<aside class="w-64 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-gray-200 p-6 min-h-screen shadow-2xl">
+
+<h2 class="text-2xl font-bold mb-10 bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+Admin Panel
+</h2>
+
+<ul class="space-y-6">
+
+<li><a href="{% url 'dashboard' %}" class="hover:text-emerald-400 transition">Dashboard</a></li>
+<li><a href="{% url 'student' %}" class="hover:text-emerald-400 transition">Student Management</a></li>
+<li><a href="{% url 'faculty' %}" class="hover:text-emerald-400 transition">Faculty Management</a></li>
+<li><a href="{% url 'course' %}" class="hover:text-emerald-400 transition">Course Management</a></li>
+<li><a href="{% url 'academic_year' %}" class="text-emerald-400 font-semibold">Academic Years</a></li>
+
+<li class="pt-10 border-t border-gray-600">
+<a href="{% url 'logout' %}" class="hover:text-red-400 transition">Logout</a>
+</li>
+
+</ul>
+</aside>
+
+<!-- Main Content -->
+<div class="flex-1 p-6 max-w-full">
+
+<!-- Header -->
+<div class="flex items-center mb-8">
+<a href="{% url 'academic_year' %}" class="text-slate-600 hover:text-slate-800 mr-4">
+← Back to Academic Years
+</a>
+<h1 class="text-3xl font-bold text-slate-800">Academic Year Details</h1>
+</div>
+
+<!-- Academic Year Details Card -->
+<div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden">
+
+<div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6">
+<div class="flex items-center space-x-4">
+<div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+<span class="text-3xl font-bold">{{ academic_year.name.0|upper }}</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold">{{ academic_year.name }}</h2>
+<p class="text-green-100">Academic Calendar Year</p>
+</div>
+</div>
+</div>
+
+<div class="p-8">
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<div class="space-y-4">
+<h3 class="text-lg font-semibold text-slate-800 border-b pb-2">Year Information</h3>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Year Name:</span>
+<span class="font-medium text-slate-800">{{ academic_year.name }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Start Date:</span>
+<span class="font-medium text-slate-800">{{ academic_year.start_date|date:"d M Y"|default:"Not set" }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">End Date:</span>
+<span class="font-medium text-slate-800">{{ academic_year.end_date|date:"d M Y"|default:"Not set" }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Duration:</span>
+<span class="font-medium text-slate-800">
+{% if academic_year.start_date and academic_year.end_date %}
+{{ academic_year.start_date|timesince:academic_year.end_date }}
+{% else %}
+Not calculated
+{% endif %}
+</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Status:</span>
+<span class="font-medium text-slate-800">
+{% if academic_year.is_current %}
+<span class="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs font-medium">Current</span>
+{% else %}
+<span class="bg-gray-100 text-gray-800 px-2 py-1 rounded-full text-xs font-medium">Previous</span>
+{% endif %}
+</span>
+</div>
+
+</div>
+
+<div class="space-y-4">
+<h3 class="text-lg font-semibold text-slate-800 border-b pb-2">Timeline</h3>
+
+<div class="relative">
+{% if academic_year.start_date %}
+<div class="flex items-center mb-4">
+<div class="w-4 h-4 bg-green-500 rounded-full mr-3"></div>
+<div>
+<p class="font-medium text-slate-800">Start Date</p>
+<p class="text-sm text-slate-600">{{ academic_year.start_date|date:"d M Y" }}</p>
+</div>
+</div>
+{% endif %}
+
+{% if academic_year.end_date %}
+<div class="flex items-center">
+<div class="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
+<div>
+<p class="font-medium text-slate-800">End Date</p>
+<p class="text-sm text-slate-600">{{ academic_year.end_date|date:"d M Y" }}</p>
+</div>
+</div>
+{% endif %}
+
+{% if academic_year.start_date and academic_year.end_date %}
+<div class="mt-6 p-4 bg-gray-50 rounded-lg">
+<p class="text-sm text-gray-600">
+<strong>Total Duration:</strong> {{ academic_year.start_date|timesince:academic_year.end_date }}
+</p>
+</div>
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+<div class="flex justify-end space-x-4 mt-8 pt-6 border-t">
+<a href="{% url 'academic_year_edit' academic_year.id %}" 
+   class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:scale-105 transition">
+Edit Academic Year
+</a>
+<a href="{% url 'academic_year_delete' academic_year.id %}" 
+   class="bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-3 rounded-lg hover:scale-105 transition"
+   onclick="return confirm('Are you sure you want to delete this academic year?')">
+Delete Academic Year
+</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

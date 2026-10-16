@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Careers | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-indigo-600 font-bold">Careers</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Join Our Team</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Build your career at Aetherium Global University. Be part of an institution shaping the future of education.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <button class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold btn-hover">
+                View Open Positions
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-indigo-600 transition">
+                Why Work Here
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Why Work at Aetherium -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Why Work at Aetherium</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🌍
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Global Impact</h3>
+            <p class="text-gray-600">Contribute to education that transforms lives and shapes the future of global society.</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🚀
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Innovation Culture</h3>
+            <p class="text-gray-600">Work in a dynamic environment that encourages creativity, research, and cutting-edge ideas.</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎓
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Professional Growth</h3>
+            <p class="text-gray-600">Continuous learning opportunities, career advancement, and professional development programs.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Current Openings -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Current Openings</h2>
+    
+    <div class="space-y-6">
+        <!-- Faculty Position -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition card-hover">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Assistant Professor - Computer Science</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">Faculty</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">On-site</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Seeking a dynamic Assistant Professor to teach undergraduate and graduate courses in Computer Science, 
+                        conduct research in AI/ML, and contribute to curriculum development.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <span>📍 Building 3, Tech Complex</span>
+                        <span>💰 $80,000 - $95,000</span>
+                        <span>📅 Posted: 2 days ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Apply Now
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">
+                    Save Position
+                </button>
+            </div>
+        </div>
+        
+        <!-- Administrative Position -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition card-hover">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Admissions Counselor</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Administrative</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Hybrid</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Join our admissions team to guide prospective students through the application process, 
+                        conduct information sessions, and represent the university at recruitment events.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <span>📍 Building 1, Admissions Office</span>
+                        <span>💰 $55,000 - $65,000</span>
+                        <span>📅 Posted: 1 week ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Apply Now
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">
+                    Save Position
+                </button>
+            </div>
+        </div>
+        
+        <!-- Research Position -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition card-hover">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Postdoctoral Research Fellow - AI Ethics</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Research</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">On-site</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Conduct cutting-edge research in AI ethics, publish in top-tier journals, mentor graduate students, 
+                        and contribute to grant proposals in the field of artificial intelligence.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <span>📍 Building 3, Research Labs</span>
+                        <span>💰 $70,000 - $80,000</span>
+                        <span>📅 Posted: 3 days ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Apply Now
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">
+                    Save Position
+                </button>
+            </div>
+        </div>
+        
+        <!-- IT Position -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition card-hover">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Senior IT Administrator</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-cyan-100 text-cyan-700 px-3 py-1 rounded-full text-sm font-medium">IT</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">On-site</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Lead our IT infrastructure team, manage campus-wide systems, ensure cybersecurity, 
+                        and drive digital transformation initiatives across the university.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <span>📍 Building 2, IT Center</span>
+                        <span>💰 $85,000 - $100,000</span>
+                        <span>📅 Posted: 5 days ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Apply Now
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">
+                    Save Position
+                </button>
+            </div>
+        </div>
+        
+        <!-- Student Services Position -->
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition card-hover">
+            <div class="flex justify-between items-start mb-4">
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Student Success Coordinator</h3>
+                    <div class="flex flex-wrap gap-2 mb-3">
+                        <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Student Services</span>
+                        <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Full-time</span>
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Hybrid</span>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        Support student success through academic advising, career counseling, and coordination 
+                        of student support programs and resources.
+                    </p>
+                    <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+                        <span>📍 Building 4, Student Union</span>
+                        <span>💰 $50,000 - $60,000</span>
+                        <span>📅 Posted: 1 week ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="flex space-x-4">
+                <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition">
+                    Apply Now
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-2 rounded-lg font-medium hover:bg-gray-50 transition">
+                    Save Position
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Benefits & Perks -->
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Benefits & Perks</h2>
+        <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">💰</span>
+                <div>
+                    <h4 class="font-bold">Competitive Salary</h4>
+                    <p class="text-white/90 text-sm">Market-leading compensation packages</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🏥</span>
+                <div>
+                    <h4 class="font-bold">Health Insurance</h4>
+                    <p class="text-white/90 text-sm">Comprehensive medical, dental, and vision coverage</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🏖️</span>
+                <div>
+                    <h4 class="font-bold">Generous PTO</h4>
+                    <p class="text-white/90 text-sm">4 weeks vacation + holidays + sick leave</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🎓</span>
+                <div>
+                    <h4 class="font-bold">Tuition Benefits</h4>
+                    <p class="text-white/90 text-sm">Free courses for employees and dependents</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🏋️</span>
+                <div>
+                    <h4 class="font-bold">Wellness Programs</h4>
+                    <p class="text-white/90 text-sm">Gym membership and wellness initiatives</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Work Environment</h2>
+        <div class="space-y-4">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🌍</span>
+                <div>
+                    <h4 class="font-bold">Diverse Community</h4>
+                    <p class="text-white/90 text-sm">Inclusive workplace with global perspectives</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🚀</span>
+                <div>
+                    <h4 class="font-bold">Innovation Focus</h4>
+                    <p class="text-white/90 text-sm">Cutting-edge research and technology</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">📚</span>
+                <div>
+                    <h4 class="font-bold">Learning Culture</h4>
+                    <p class="text-white/90 text-sm">Continuous professional development</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🏢</span>
+                <div>
+                    <h4 class="font-bold">Beautiful Campus</h4>
+                    <p class="text-white/90 text-sm">State-of-the-art facilities and environment</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">⚖️</span>
+                <div>
+                    <h4 class="font-bold">Work-Life Balance</h4>
+                    <p class="text-white/90 text-sm">Flexible schedules and remote options</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Application Process -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Application Process</h2>
+    
+    <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                1
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Submit Application</h3>
+            <p class="text-gray-600">Complete online application with resume and cover letter</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                2
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Initial Screening</h3>
+            <p class="text-gray-600">HR team reviews applications and conducts initial interviews</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                3
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Department Interview</h3>
+            <p class="text-gray-600">Meet with hiring manager and team members</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                4
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Final Decision</h3>
+            <p class="text-gray-600">Reference checks and offer presentation</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contact HR -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-6">Contact Human Resources</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4">HR Department</h3>
+            <div class="space-y-3 text-white/90">
+                <p>📍 Building 1, Room 205</p>
+                <p>📞 +1 (800) HR-AETHERIUM</p>
+                <p>📞 +1 (800) 472-8437</p>
+                <p>📧 hr@aetherium.edu</p>
+                <p>🕐 Monday - Friday: 8:00 AM - 6:00 PM</p>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">Career Inquiries</h3>
+            <p class="text-white/90 mb-4">
+                For questions about positions, application status, or career opportunities at Aetherium.
+            </p>
+            <div class="space-y-3">
+                <button class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold btn-hover w-full">
+                    Email HR Department
+                </button>
+                <button class="border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-indigo-600 transition w-full">
+                    Schedule Information Session
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

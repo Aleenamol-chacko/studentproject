@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Campus Map | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+.map-container {
+    position: relative;
+    overflow: hidden;
+}
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+    pointer-events: none;
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1541339467339-2a51d9f44671?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Research</a>
+                    <a href="#" class="text-indigo-600 font-bold">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1541339467339-2a51d9f44671?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Campus Map</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Explore our beautiful 500-acre campus with state-of-the-art facilities and inspiring learning environments.
+        </p>
+    </div>
+</div>
+
+<!-- Interactive Campus Map -->
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden mb-16 border border-gray-100">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6">
+        <h2 class="text-2xl font-black">Interactive Campus Map</h2>
+        <p class="text-white/90">Click on buildings to explore</p>
+    </div>
+    
+    <div class="relative h-96 map-container">
+        <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1600&q=80" 
+             class="w-full h-full object-cover">
+        <div class="map-overlay"></div>
+        
+        <!-- Map Markers -->
+        <div class="absolute top-1/4 left-1/4 cursor-pointer group">
+            <div class="w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-xs font-bold hover:scale-110 transition">
+                1
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition">
+                <div class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+                    Main Administration Building
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-1/3 right-1/3 cursor-pointer group">
+            <div class="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold hover:scale-110 transition">
+                2
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition">
+                <div class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+                    Library & Learning Center
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-1/3 left-1/3 cursor-pointer group">
+            <div class="w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-xs font-bold hover:scale-110 transition">
+                3
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition">
+                <div class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+                    Science & Technology Complex
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute top-1/2 right-1/4 cursor-pointer group">
+            <div class="w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold hover:scale-110 transition">
+                4
+            </div>
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition">
+                <div class="bg-gray-900 text-white px-3 py-2 rounded-lg text-sm whitespace-nowrap">
+                    Student Union Center
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="p-6">
+        <div class="grid md:grid-cols-4 gap-4">
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 bg-red-600 rounded-full"></div>
+                <span class="text-gray-700">Administration</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 bg-blue-600 rounded-full"></div>
+                <span class="text-gray-700">Academic Buildings</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 bg-green-600 rounded-full"></div>
+                <span class="text-gray-700">Science & Tech</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <div class="w-6 h-6 bg-purple-600 rounded-full"></div>
+                <span class="text-gray-700">Student Facilities</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Campus Buildings Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-red-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                1
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Main Administration Building</h3>
+            <p class="text-gray-600 mb-4">Central administrative offices, registrar, financial aid, and student services.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 1</p>
+                <p>🕐 Open: 8:00 AM - 6:00 PM</p>
+                <p>📞 Extension: 1001</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1568667256549-094345257f6f?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                2
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Library & Learning Center</h3>
+            <p class="text-gray-600 mb-4">24/7 study spaces, digital resources, research archives, and collaborative areas.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 2</p>
+                <p>🕐 Open: 24/7</p>
+                <p>📞 Extension: 2001</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                3
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Science & Technology Complex</h3>
+            <p class="text-gray-600 mb-4">Engineering labs, research facilities, innovation center, and tech workshops.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 3</p>
+                <p>🕐 Open: 7:00 AM - 10:00 PM</p>
+                <p>📞 Extension: 3001</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                4
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Student Union Center</h3>
+            <p class="text-gray-600 mb-4">Student organizations, dining halls, recreation center, and event spaces.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 4</p>
+                <p>🕐 Open: 6:00 AM - 12:00 AM</p>
+                <p>📞 Extension: 4001</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1576091160553-5a3c904b5fc?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-amber-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                5
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Medical & Health Center</h3>
+            <p class="text-gray-600 mb-4">Health services, medical facilities, counseling center, and wellness programs.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 5</p>
+                <p>🕐 Open: 8:00 AM - 8:00 PM</p>
+                <p>📞 Extension: 5001</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 w-8 h-8 bg-cyan-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
+                6
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-2 text-gray-900">Athletic Complex</h3>
+            <p class="text-gray-600 mb-4">Sports facilities, gymnasium, swimming pool, tennis courts, and fitness center.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>📍 Building 6</p>
+                <p>🕐 Open: 6:00 AM - 10:00 PM</p>
+                <p>📞 Extension: 6001</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Campus Services -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Campus Services & Amenities</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4">🍽️ Dining</h3>
+            <ul class="space-y-2 text-white/90">
+                <li>• Main Cafeteria (Building 4)</li>
+                <li>• Coffee Shop (Library)</li>
+                <li>• Food Court (Student Union)</li>
+                <li>• Campus Restaurant (Building 1)</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">🚗 Transportation</h3>
+            <ul class="space-y-2 text-white/90">
+                <li>• Campus Shuttle Service</li>
+                <li>• Bike Sharing Program</li>
+                <li>• EV Charging Stations</li>
+                <li>• Visitor Parking Areas</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">🏥 Health & Safety</h3>
+            <ul class="space-y-2 text-white/90">
+                <li>• 24/7 Campus Security</li>
+                <li>• Medical Emergency Services</li>
+                <li>• Counseling Center</li>
+                <li>• Emergency Call Boxes</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Virtual Tour -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Virtual Campus Tour</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Experience Campus from Anywhere</h3>
+            <p class="text-gray-600 mb-6">
+                Take a virtual tour of our beautiful campus facilities. Explore classrooms, labs, libraries, 
+                and student spaces through our immersive 360° virtual experience.
+            </p>
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600">
+                        🎥
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">360° Campus Walkthrough</h4>
+                        <p class="text-gray-600 text-sm">Complete campus experience</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600">
+                        🎯
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Interactive Hotspots</h4>
+                        <p class="text-gray-600 text-sm">Click to learn more about each location</p>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600">
+                        📱
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Mobile Friendly</h4>
+                        <p class="text-gray-600 text-sm">Available on all devices</p>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold btn-hover mt-6">
+                Start Virtual Tour
+            </button>
+        </div>
+        
+        <div class="relative h-64 rounded-xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+                <div class="text-center text-white">
+                    <div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-3xl">▶️</span>
+                    </div>
+                    <p class="font-bold">Click to Play Virtual Tour</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

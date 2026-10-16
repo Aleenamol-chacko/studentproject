@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sports & Athletics | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Research</a>
+                    <a href="#" class="text-indigo-600 font-bold">Campus Life</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Sports & Athletics</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Champion excellence on and off the field. Join our award-winning athletic programs and state-of-the-art sports facilities.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <button class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold btn-hover">
+                Try Out for Team
+            </button>
+            <button class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-indigo-600 transition">
+                Gym Membership
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Featured Sports -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Varsity Sports Teams</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Basketball -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Men's Basketball
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium Eagles</h3>
+                <p class="text-gray-600 mb-4">3-time defending champions with a legacy of excellence and teamwork.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>🏆 3x National Champions</p>
+                    <p>👥 15 roster spots</p>
+                    <p>📅 Fall & Spring season</p>
+                </div>
+                <button class="bg-orange-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-orange-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+        
+        <!-- Soccer -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1517466787929-bc90951d0974?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Soccer
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium United</h3>
+                <p class="text-gray-600 mb-4">Dynamic soccer program with both men's and women's teams competing at the highest level.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>⚽ Regional Champions 2025</p>
+                    <p>👥 22 roster spots each</p>
+                    <p>📅 Year-round training</p>
+                </div>
+                <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+        
+        <!-- Swimming -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Swimming & Diving
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium Aquatics</h3>
+                <p class="text-gray-600 mb-4">Elite swimming and diving program with Olympic-level coaching and facilities.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>🏊 25 National Qualifiers</p>
+                    <p>👥 30 team members</p>
+                    <p>📅 Indoor pool season</p>
+                </div>
+                <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+        
+        <!-- Tennis -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1595435934249-5f7653a2c2e2?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-yellow-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Tennis
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium Racquet Club</h3>
+                <p class="text-gray-600 mb-4">Competitive tennis program with state-of-the-art courts and professional coaching.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>🎾 Top 10 nationally ranked</p>
+                    <p>👥 12 singles, 6 doubles</p>
+                    <p>📅 Spring & Fall season</p>
+                </div>
+                <button class="bg-yellow-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-yellow-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+        
+        <!-- Track & Field -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Track & Field
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium Track Stars</h3>
+                <p class="text-gray-600 mb-4">Comprehensive track and field program with events in sprints, distance, jumps, and throws.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>🏃 15 event champions</p>
+                    <p>👥 40+ athletes</p>
+                    <p>📅 Indoor & outdoor season</p>
+                </div>
+                <button class="bg-red-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-red-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+        
+        <!-- Volleyball -->
+        <div class="border border-gray-200 rounded-xl overflow-hidden card-hover">
+            <div class="relative h-48 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=800&q=80" 
+                     class="w-full h-full object-cover">
+                <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                    Volleyball
+                </div>
+            </div>
+            <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">Aetherium Storm</h3>
+                <p class="text-gray-600 mb-4">Powerhouse volleyball program with men's and women's teams known for their explosive play.</p>
+                <div class="space-y-2 text-sm text-gray-500 mb-4">
+                    <p>🏐 Conference Champions</p>
+                    <p>👥 12 roster spots each</p>
+                    <p>📅 Fall season</p>
+                </div>
+                <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                    Try Out Information
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Sports Facilities -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">World-Class Sports Facilities</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🏟️
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Eagles Stadium</h3>
+            <p class="text-gray-600 mb-4">15,000-seat multipurpose stadium with premium suites and state-of-the-art lighting.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🏟️ 15,000 capacity</p>
+                <p>⚡ LED lighting system</p>
+                <p>🎯 Premium suites</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🏊
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Aquatic Center</h3>
+            <p class="text-gray-600 mb-4">Olympic-size pool with diving platforms and advanced water filtration systems.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🏊 50m competition pool</p>
+                <p>🤿 10m diving platform</p>
+                <p>💧 Advanced filtration</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🏋️
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Athletic Complex</h3>
+            <p class="text-gray-600 mb-4">25,000 sq ft fitness center with cutting-edge equipment and sports medicine facilities.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🏋️ 25,000 sq ft</p>
+                <p>💪 200+ machines</p>
+                <p>🏥 Sports medicine center</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🎾
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Tennis Center</h3>
+            <p class="text-gray-600 mb-4">12 championship courts with professional lighting and electronic scoring systems.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🎾 12 championship courts</p>
+                <p>💡 Professional lighting</p>
+                <p>📊 Electronic scoring</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🏃
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Track & Field Complex</h3>
+            <p class="text-gray-600 mb-4">400m Mondo track with field event areas and covered seating for 2,000 spectators.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🏃 400m Mondo track</p>
+                <p>🎯 Field event areas</p>
+                <p>👥 2,000 seat capacity</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                🥊
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Combat Sports Arena</h3>
+            <p class="text-gray-600 mb-4">Dedicated facility for wrestling, boxing, and martial arts with competition-grade mats.</p>
+            <div class="space-y-2 text-sm text-gray-500">
+                <p>🥊 4 competition mats</p>
+                <p>🥋 Martial arts dojo</p>
+                <p>📹 Video analysis system</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Intramural Sports -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Intramural Sports</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Join the Fun!</h3>
+            <p class="text-gray-600 mb-6">
+                Our intramural program offers recreational sports opportunities for all students, regardless of skill level. 
+                Form teams with friends, compete against other departments, and stay active while having fun.
+            </p>
+            
+            <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl">🏐</span>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Volleyball League</h4>
+                        <p class="text-gray-600 text-sm">Co-ed teams, weekly games</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl">⚽</span>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Indoor Soccer</h4>
+                        <p class="text-gray-600 text-sm">5-a-side, fast-paced action</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl">🏀</span>
+                    <div>
+                        <h4 class="font-bold text-gray-900">3x3 Basketball</h4>
+                        <p class="text-gray-600 text-sm">Half-court tournaments</p>
+                    </div>
+                </div>
+                
+                <div class="flex items-center space-x-3">
+                    <span class="text-xl">🎾</span>
+                    <div>
+                        <h4 class="font-bold text-gray-900">Tennis Ladder</h4>
+                        <p class="text-gray-600 text-sm">Challenge ladder format</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Registration Information</h3>
+            <div class="bg-gray-50 rounded-xl p-6 mb-6">
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Registration Fee:</span>
+                        <span class="font-bold text-gray-900">$25 per sport</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Team Size:</span>
+                        <span class="font-bold text-gray-900">6-12 players</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Season Length:</span>
+                        <span class="font-bold text-gray-900">8 weeks</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Game Schedule:</span>
+                        <span class="font-bold text-gray-900">Weeknights 6-10 PM</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition w-full">
+                Register for Intramural Sports
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Sports Statistics -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Athletics Excellence</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">20</div>
+            <div class="text-lg text-white/90">Varsity Sports</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">500+</div>
+            <div class="text-lg text-white/90">Student Athletes</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">15</div>
+            <div class="text-lg text-white/90">National Championships</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">3.8</div>
+            <div class="text-lg text-white/90">Team GPA</div>
+        </div>
+    </div>
+</div>
+
+<!-- Fitness Center -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Campus Fitness Center</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">State-of-the-Art Equipment</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Cardiovascular Area</h4>
+                    <p class="text-gray-600 text-sm">Treadmills, ellipticals, stair climbers, rowing machines, and stationary bikes</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Strength Training</h4>
+                    <p class="text-gray-600 text-sm">Free weights, resistance machines, squat racks, and functional training equipment</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Group Fitness Studios</h4>
+                    <p class="text-gray-600 text-sm">Yoga, cycling, HIIT, dance, and specialized fitness classes</p>
+                </div>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Membership Options</h3>
+            <div class="space-y-4">
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Student Membership</h4>
+                    <p class="text-gray-600 text-sm mb-2">Full access to all facilities and equipment</p>
+                    <p class="text-2xl font-black text-indigo-600">$50/semester</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Faculty/Staff Membership</h4>
+                    <p class="text-gray-600 text-sm mb-2">Includes family discounts and guest passes</p>
+                    <p class="text-2xl font-black text-indigo-600">$75/semester</p>
+                </div>
+                
+                <div class="border border-gray-200 rounded-xl p-4">
+                    <h4 class="font-bold text-gray-900 mb-2">Community Membership</h4>
+                    <p class="text-gray-600 text-sm mb-2">Available to local residents with limited hours</p>
+                    <p class="text-2xl font-black text-indigo-600">$100/month</p>
+                </div>
+            </div>
+            
+            <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-indigo-700 transition w-full mt-6">
+                Sign Up for Membership
+            </button>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

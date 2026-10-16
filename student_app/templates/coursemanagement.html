@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Course Management | College ERP</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0F172A',
+        secondary: '#0284C7'
+      }
+    }
+  }
+}
+</script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-100 via-sky-50 to-blue-100 flex">
+
+<!-- Background -->
+<div class="fixed inset-0 -z-10">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+class="w-full h-full object-cover opacity-20">
+</div>
+
+<!-- Sidebar -->
+<aside class="w-64 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-gray-200 p-6 min-h-screen shadow-2xl">
+
+<h2 class="text-2xl font-bold mb-10 bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+Admin Panel
+</h2>
+
+<ul class="space-y-6">
+
+<li>
+<a href="{% url 'dashboard' %}" class="hover:text-emerald-400 transition">Dashboard</a>
+</li>
+
+<li>
+<a href="{% url 'student' %}" class="hover:text-emerald-400 transition">Student Management</a>
+</li>
+
+<li>
+<a href="{% url 'faculty' %}" class="hover:text-emerald-400 transition">Faculty Management</a>
+</li>
+
+<li>
+<a href="{% url 'course' %}" class="text-emerald-400 font-semibold">Course Management</a>
+</li>
+
+<li class="pt-10 border-t border-gray-600">
+<a href="{% url 'logout' %}" class="hover:text-red-400 transition">Logout</a>
+</li>
+
+</ul>
+</aside>
+
+<!-- Main Content -->
+<div class="flex-1 p-6 max-w-full">
+
+<!-- Header -->
+<div class="flex flex-col md:flex-row justify-between items-center mb-8">
+
+<div>
+<h1 class="text-4xl font-extrabold text-primary">Course Management</h1>
+<p class="text-gray-600 mt-2">
+Manage academic courses, credits & semester details
+</p>
+</div>
+
+<div class="flex space-x-4 mt-4 md:mt-0">
+
+<a href="{% url 'course_add' %}"
+class="px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:scale-105 transition">
++ Add Course
+</a>
+
+<button onclick="downloadCSV()"
+class="px-6 py-3 bg-secondary text-white rounded-xl shadow-lg hover:bg-sky-700 transition">
+Download CSV
+</button>
+
+</div>
+
+</div>
+
+<!-- Search -->
+<div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-lg p-6 mb-8">
+
+<input type="text" id="searchInput"
+placeholder="Search by Course Name, Department, Semester..."
+class="w-full px-5 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none"
+onkeyup="searchCourse()">
+
+</div>
+
+<!-- Course Table -->
+<div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-x-auto">
+
+<table class="w-full text-left">
+
+<thead class="bg-gradient-to-r from-primary to-secondary text-white">
+
+<tr>
+<th class="p-4">Course Code</th>
+<th class="p-4">Course Name</th>
+<th class="p-4">Department</th>
+<th class="p-4">Credits</th>
+<th class="p-4">Semester</th>
+<th class="p-4">Duration</th>
+<th class="p-4">Start Date</th>
+<th class="p-4">Actions</th>
+</tr>
+
+</thead>
+
+<tbody id="courseTable" class="divide-y">
+
+{% for course in courses %}
+
+<tr class="hover:bg-sky-50 transition">
+
+<td class="p-4 font-semibold">{{ course.coursecode }}</td>
+
+<td class="p-4">{{ course.coursename }}</td>
+
+<td class="p-4">{{ course.department }}</td>
+
+<td class="p-4">{{ course.credits }}</td>
+
+<td class="p-4">{{ course.semester }}</td>
+
+<td class="p-4">{{ course.duration }}</td>
+
+<td class="p-4">{{ course.startdate }}</td>
+
+<td class="p-4 space-x-2">
+
+<a href="{% url 'course_view' course.id %}"
+class="px-3 py-1 bg-blue-500 text-white rounded-lg text-sm">
+View
+</a>
+
+<a href="{% url 'course_edit' course.id %}"
+class="px-3 py-1 bg-yellow-500 text-white rounded-lg text-sm">
+Edit
+</a>
+
+<a href="{% url 'course_delete' course.id %}"
+class="px-3 py-1 bg-red-500 text-white rounded-lg text-sm">
+Delete
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- JavaScript -->
+
+<script>
+
+function searchCourse(){
+
+let input = document.getElementById("searchInput").value.toLowerCase();
+let rows = document.querySelectorAll("#courseTable tr");
+
+rows.forEach(row=>{
+let text=row.innerText.toLowerCase();
+row.style.display = text.includes(input) ? "" : "none";
+});
+
+}
+
+function downloadCSV(){
+
+let table=document.querySelector("table");
+let rows=table.querySelectorAll("tr");
+let csv=[];
+
+rows.forEach(row=>{
+let cols=row.querySelectorAll("td,th");
+let rowData=[];
+
+cols.forEach(col=>rowData.push(col.innerText));
+
+csv.push(rowData.join(","));
+});
+
+let csvFile=new Blob([csv.join("\n")],{type:"text/csv"});
+
+let downloadLink=document.createElement("a");
+downloadLink.download="course_data.csv";
+downloadLink.href=window.URL.createObjectURL(csvFile);
+downloadLink.click();
+
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Innovation Labs | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-indigo-600 font-bold">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Innovation Labs</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Where ideas become reality. State-of-the-art facilities fostering creativity, prototyping, and breakthrough innovations.
+        </p>
+    </div>
+</div>
+
+<!-- Innovation Labs Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <!-- Maker Space -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-orange-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Maker Space
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Digital Fabrication Lab</h3>
+            <p class="text-gray-600 mb-4">Complete prototyping facility with 3D printers, laser cutters, CNC machines, and electronics workstations.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 7, Room 101</p>
+                <p>🔧 20+ Equipment</p>
+                <p>⏰ 24/7 Access</p>
+            </div>
+            <button class="bg-orange-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-orange-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+    
+    <!-- VR/AR Lab -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                VR/AR
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Virtual & Augmented Reality Lab</h3>
+            <p class="text-gray-600 mb-4">Immersive technology lab with VR headsets, motion capture systems, and AR development tools.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Room 305</p>
+                <p>🥽 15 VR Stations</p>
+                <p>⏰ 8 AM - 10 PM</p>
+            </div>
+            <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+    
+    <!-- Bio Innovation Lab -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1576091160553-5a3c904b5fc?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                BioTech
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Bio Innovation Laboratory</h3>
+            <p class="text-gray-600 mb-4">Advanced biotech facility for synthetic biology, tissue engineering, and biofabrication research.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 5, Room 201</p>
+                <p>🧬 BSL-2 Certified</p>
+                <p>⏰ 9 AM - 6 PM</p>
+            </div>
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+    
+    <!-- IoT Lab -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                IoT
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Internet of Things Lab</h3>
+            <p class="text-gray-600 mb-4">Connected device development with sensors, microcontrollers, edge computing, and cloud integration.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Room 401</p>
+                <p>📡 50+ Sensor Types</p>
+                <p>⏰ 24/7 Access</p>
+            </div>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+    
+    <!-- AI/ML Lab -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1677442135979-9145d3a9fc65?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                AI/ML
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Machine Learning Lab</h3>
+            <p class="text-gray-600 mb-4">High-performance computing cluster with GPUs for deep learning, neural networks, and AI model training.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Room 501</p>
+                <p>🖥️ 8 GPU Nodes</p>
+                <p>⏰ 24/7 Access</p>
+            </div>
+            <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+    
+    <!-- Clean Energy Lab -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1473341304175-4cd0d6e62f74?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Energy
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Clean Energy Lab</h3>
+            <p class="text-gray-600 mb-4">Renewable energy research with solar panels, wind turbines, battery systems, and smart grid technology.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 6, Room 301</p>
+                <p>⚡ 100kW Capacity</p>
+                <p>⏰ 8 AM - 8 PM</p>
+            </div>
+            <button class="bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition w-full">
+                Book Lab Time
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Lab Statistics -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Innovation Impact</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">6</div>
+            <div class="text-lg text-white/90">Innovation Labs</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">500+</div>
+            <div class="text-lg text-white/90">Projects Developed</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">45</div>
+            <div class="text-lg text-white/90">Startups Launched</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">2000+</div>
+            <div class="text-lg text-white/90">Students Trained</div>
+        </div>
+    </div>
+</div>
+
+<!-- Lab Services -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Lab Services & Resources</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-orange-500 to-red-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🛠️
+            </div>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Equipment Rental</h3>
+            <p class="text-gray-600 mb-4">Access to professional-grade equipment for your projects and research.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-1">
+                <li>• 3D Printers & Scanners</li>
+                <li>• Electronics Workstations</li>
+                <li>• Testing Equipment</li>
+                <li>• Professional Tools</li>
+            </ul>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                👨‍🏫
+            </div>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Technical Support</h3>
+            <p class="text-gray-600 mb-4">Expert guidance from lab technicians and research specialists.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-1">
+                <li>• One-on-One Training</li>
+                <li>• Workshops & Seminars</li>
+                <li>• Project Consultation</li>
+                <li>• Safety Training</li>
+            </ul>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                💡
+            </div>
+            <h3 class="text-lg font-bold mb-3 text-gray-900">Innovation Grants</h3>
+            <p class="text-gray-600 mb-4">Funding opportunities for innovative student and faculty projects.</p>
+            <ul class="text-left text-gray-600 text-sm space-y-1">
+                <li>• Seed Funding</li>
+                <li>• Material Support</li>
+                <li>• Patent Assistance</li>
+                <li>• Startup Incubation</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Student Projects Showcase -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Featured Student Projects</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-indigo-600 text-xl mb-4">
+                🤖
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Autonomous Delivery Drone</h3>
+            <p class="text-gray-600 text-sm mb-3">AI-powered drone system for campus package delivery with obstacle avoidance.</p>
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-indigo-600 font-medium">Robotics Lab</span>
+                <span class="text-gray-500">Team of 4</span>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center text-green-600 text-xl mb-4">
+                🌱
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Smart Hydroponic System</h3>
+            <p class="text-gray-600 text-sm mb-3">IoT-based automated plant growing system with nutrient monitoring.</p>
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-green-600 font-medium">IoT Lab</span>
+                <span class="text-gray-500">Team of 3</span>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-purple-600 text-xl mb-4">
+                🥽
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">VR Medical Training</h3>
+            <p class="text-gray-600 text-sm mb-3">Virtual reality simulation for surgical training and medical education.</p>
+            <div class="flex items-center justify-between text-sm">
+                <span class="text-purple-600 font-medium">VR/AR Lab</span>
+                <span class="text-gray-500">Team of 5</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold btn-hover">
+            View All Projects
+        </button>
+    </div>
+</div>
+
+<!-- Lab Booking System -->
+<div class="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-6">Book Lab Time</h2>
+    <p class="text-white/90 mb-8">Reserve lab space and equipment for your projects and research.</p>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4">Quick Booking</h3>
+            <div class="space-y-4">
+                <select class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white placeholder-white/70">
+                    <option>Select Lab</option>
+                    <option>Digital Fabrication Lab</option>
+                    <option>VR/AR Lab</option>
+                    <option>Bio Innovation Lab</option>
+                    <option>IoT Lab</option>
+                    <option>Machine Learning Lab</option>
+                    <option>Clean Energy Lab</option>
+                </select>
+                <input type="date" class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white">
+                <input type="time" class="w-full px-4 py-3 rounded-xl bg-white/20 border border-white/30 text-white">
+                <button class="bg-white text-orange-600 px-6 py-3 rounded-xl font-bold hover:bg-gray-100 transition w-full">
+                    Book Now
+                </button>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">Lab Guidelines</h3>
+            <ul class="space-y-3 text-white/90">
+                <li class="flex items-start space-x-3">
+                    <span class="text-xl">✓</span>
+                    <span>Complete safety training before first use</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-xl">✓</span>
+                    <span>Book at least 24 hours in advance</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-xl">✓</span>
+                    <span>Maximum 4-hour booking per session</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-xl">✓</span>
+                    <span>Clean up after use</span>
+                </li>
+                <li class="flex items-start space-x-3">
+                    <span class="text-xl">✓</span>
+                    <span>Report any issues immediately</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

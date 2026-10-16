@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Management | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+.table-hover {
+    transition: all 0.2s ease;
+}
+.table-hover:hover {
+    background-color: rgba(99, 102, 241, 0.05);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'dashboard' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Dashboard</a>
+                    <a href="{% url 'student' %}" class="text-indigo-600 font-bold">Students</a>
+                    <a href="{% url 'faculty' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Faculty</a>
+                    <a href="{% url 'course' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Courses</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'manage_profile' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Profile</a>
+                <a href="{% url 'logout' %}" class="text-red-600 hover:text-red-700 font-medium transition">Logout</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+    <div>
+        <h1 class="text-4xl md:text-5xl font-black text-gray-900 mb-2">
+            Student Management
+        </h1>
+        <p class="text-xl text-gray-600">
+            Manage student records, admissions & academic details
+        </p>
+    </div>
+    
+    <div class="flex space-x-4 mt-6 md:mt-0">
+        <a href="{% url 'student_add' %}"
+           class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-bold btn-hover">
+            + Add Student
+        </a>
+        <button onclick="downloadCSV()"
+                class="bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-bold hover:bg-gray-50 transition">
+            📊 Download CSV
+        </button>
+    </div>
+</div>
+
+<!-- Search Section -->
+<div class="bg-white rounded-2xl shadow-lg p-6 mb-8 card-hover border border-gray-100">
+    <div class="relative">
+        <input type="text" id="searchInput"
+               placeholder="🔍 Search by Name, Register No, Department..."
+               class="w-full px-5 py-4 rounded-xl border border-gray-200 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-lg"
+               onkeyup="searchStudent()">
+    </div>
+</div>
+
+<!-- Stats Cards -->
+<div class="grid md:grid-cols-4 gap-6 mb-8">
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Total Students</p>
+                <p class="text-3xl font-black text-gray-900">{{ students|length }}</p>
+            </div>
+            <div class="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">🎓</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Active Today</p>
+                <p class="text-3xl font-black text-green-600">0</p>
+            </div>
+            <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">✅</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-gray-600 text-sm font-medium">New This Week</p>
+                <p class="text-3xl font-black text-blue-600">0</p>
+            </div>
+            <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">📈</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="flex items-center justify-between">
+            <div>
+                <p class="text-gray-600 text-sm font-medium">Avg CGPA</p>
+                <p class="text-3xl font-black text-purple-600">0.0</p>
+            </div>
+            <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center">
+                <span class="text-2xl">📊</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Student Table -->
+<div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white p-6">
+        <h2 class="text-2xl font-black">Student Records</h2>
+        <p class="text-white/90">Complete student database</p>
+    </div>
+    
+    <div class="overflow-x-auto">
+        <table class="w-full">
+            <thead class="bg-gray-50 border-b border-gray-200">
+                <tr>
+                    <th class="p-4 text-left font-bold text-gray-900">Photo</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Register No</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Name</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Department</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Year</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Email</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Phone</th>
+                    <th class="p-4 text-left font-bold text-gray-900">CGPA</th>
+                    <th class="p-4 text-left font-bold text-gray-900">Actions</th>
+                </tr>
+            </thead>
+            
+            <tbody id="studentTable" class="divide-y divide-gray-100">
+                {% for student in students %}
+                <tr class="table-hover">
+                    <td class="p-4">
+                        {% if student.photo %}
+                        <img src="{{ student.photo.url }}" class="w-12 h-12 rounded-full object-cover border-2 border-gray-200">
+                        {% else %}
+                        <div class="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center">
+                            <span class="text-gray-500">👤</span>
+                        </div>
+                        {% endif %}
+                    </td>
+                    
+                    <td class="p-4">
+                        <span class="font-bold text-indigo-600">{{ student.studentid }}</span>
+                    </td>
+                    
+                    <td class="p-4">
+                        <div class="font-medium text-gray-900">{{ student.fullname }}</div>
+                    </td>
+                    
+                    <td class="p-4">
+                        <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">
+                            {{ student.department }}
+                        </span>
+                    </td>
+                    
+                    <td class="p-4">
+                        <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                            Year {{ student.year }}
+                        </span>
+                    </td>
+                    
+                    <td class="p-4">
+                        <div class="text-gray-600">{{ student.email }}</div>
+                    </td>
+                    
+                    <td class="p-4">
+                        <div class="text-gray-600">{{ student.phone }}</div>
+                    </td>
+                    
+                    <td class="p-4">
+                        <div class="flex items-center">
+                            <span class="font-bold text-lg {% if student.cgpa >= 3.5 %}text-green-600{% elif student.cgpa >= 3.0 %}text-blue-600{% else %}text-orange-600{% endif %}">
+                                {{ student.cgpa }}
+                            </span>
+                        </div>
+                    </td>
+                    
+                    <td class="p-4">
+                        <div class="flex space-x-2">
+                            <a href="{% url 'student_view' student.id %}" 
+                               class="px-3 py-2 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition">
+                                👁️
+                            </a>
+                            <a href="{% url 'student_edit' student.id %}" 
+                               class="px-3 py-2 bg-amber-500 text-white rounded-lg font-medium hover:bg-amber-600 transition">
+                                ✏️
+                            </a>
+                            <a href="{% url 'student_delete' student.id %}" 
+                               class="px-3 py-2 bg-red-500 text-white rounded-lg font-medium hover:bg-red-600 transition">
+                                🗑️
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</div>
+
+<!-- JavaScript -->
+<script>
+function searchStudent() {
+    let input = document.getElementById("searchInput").value.toLowerCase();
+    let rows = document.querySelectorAll("#studentTable tr");
+    
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(input) ? "" : "none";
+    });
+}
+
+function downloadCSV() {
+    let table = document.querySelector("table");
+    let rows = table.querySelectorAll("tr");
+    let csv = [];
+    
+    rows.forEach(row => {
+        let cols = row.querySelectorAll("td, th");
+        let rowData = [];
+        
+        cols.forEach(col => rowData.push(col.innerText));
+        
+        csv.push(rowData.join(","));
+    });
+    
+    let csvFile = new Blob([csv.join("\n")], { type: "text/csv" });
+    
+    let downloadLink = document.createElement("a");
+    downloadLink.download = "student_data.csv";
+    downloadLink.href = window.URL.createObjectURL(csvFile);
+    downloadLink.click();
+}
+</script>
+
+</body>
+</html>

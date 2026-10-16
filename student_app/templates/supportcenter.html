@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Center | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-indigo-600 font-bold">Support</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Support Center</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            We're here to help you succeed. Get comprehensive support for all your academic and technical needs.
+        </p>
+    </div>
+</div>
+
+<!-- Quick Help Categories -->
+<div class="grid md:grid-cols-4 gap-6 mb-16">
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="w-14 h-14 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4">
+            💻
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Technical Support</h3>
+        <p class="text-gray-600 mb-4">IT help, software issues, account problems</p>
+        <a href="#" class="text-indigo-600 font-bold hover:text-indigo-700 transition">Get Help →</a>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="w-14 h-14 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4">
+            🎓
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Academic Support</h3>
+        <p class="text-gray-600 mb-4">Course registration, grades, transcripts</p>
+        <a href="#" class="text-purple-600 font-bold hover:text-purple-700 transition">Get Help →</a>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4">
+            💳
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Financial Support</h3>
+        <p class="text-gray-600 mb-4">Payments, scholarships, financial aid</p>
+        <a href="#" class="text-green-600 font-bold hover:text-green-700 transition">Get Help →</a>
+    </div>
+    
+    <div class="bg-white rounded-2xl shadow-lg p-6 card-hover border border-gray-100">
+        <div class="w-14 h-14 bg-gradient-to-r from-amber-500 to-orange-600 rounded-xl flex items-center justify-center text-white text-2xl mb-4">
+            🏠
+        </div>
+        <h3 class="text-xl font-bold mb-3 text-gray-900">Campus Support</h3>
+        <p class="text-gray-600 mb-4">Housing, facilities, campus services</p>
+        <a href="#" class="text-amber-600 font-bold hover:text-amber-700 transition">Get Help →</a>
+    </div>
+</div>
+
+<!-- FAQ Section -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Frequently Asked Questions</h2>
+    
+    <div class="space-y-4">
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-center cursor-pointer">
+                <h3 class="text-lg font-bold text-gray-900">How do I reset my password?</h3>
+                <span class="text-2xl text-gray-400">+</span>
+            </div>
+            <p class="text-gray-600 mt-4">Click on "Forgot Password" on the login page, enter your email address, and follow the instructions sent to your email.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-center cursor-pointer">
+                <h3 class="text-lg font-bold text-gray-900">Where can I find my course materials?</h3>
+                <span class="text-2xl text-gray-400">+</span>
+            </div>
+            <p class="text-gray-600 mt-4">Course materials are available in the student portal under "My Courses". Select your course to access lectures, assignments, and resources.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-center cursor-pointer">
+                <h3 class="text-lg font-bold text-gray-900">How do I contact my professors?</h3>
+                <span class="text-2xl text-gray-400">+</span>
+            </div>
+            <p class="text-gray-600 mt-4">Professor contact information is available in the course directory. You can also use the messaging system in the student portal.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-center cursor-pointer">
+                <h3 class="text-lg font-bold text-gray-900">What payment methods are accepted?</h3>
+                <span class="text-2xl text-gray-400">+</span>
+            </div>
+            <p class="text-gray-600 mt-4">We accept credit/debit cards, bank transfers, and online payment platforms. Visit the payment portal for more options.</p>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-center cursor-pointer">
+                <h3 class="text-lg font-bold text-gray-900">How do I apply for scholarships?</h3>
+                <span class="text-2xl text-gray-400">+</span>
+            </div>
+            <p class="text-gray-600 mt-4">Scholarship applications are available through the financial aid portal. Check eligibility criteria and submit required documents.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Support Channels -->
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Live Chat Support</h2>
+        <p class="text-white/90 mb-6">Get instant help from our support team through live chat.</p>
+        <div class="space-y-3 text-white/80 mb-6">
+            <p>Available: Monday - Friday, 9:00 AM - 6:00 PM</p>
+            <p>Average response time: 2 minutes</p>
+        </div>
+        <button class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold btn-hover">
+            Start Live Chat
+        </button>
+    </div>
+    
+    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Email Support</h2>
+        <p class="text-white/90 mb-6">Send us detailed questions and receive comprehensive responses.</p>
+        <div class="space-y-3 text-white/80 mb-6">
+            <p>Response time: Within 24 hours</p>
+            <p>Email: support@aetherium.edu</p>
+        </div>
+        <button class="bg-white text-green-600 px-6 py-3 rounded-xl font-bold btn-hover">
+            Send Email
+        </button>
+    </div>
+</div>
+
+<!-- Support Team -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Dedicated Support Team</h2>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👨‍💼
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Technical Team</h3>
+            <p class="text-gray-600">IT infrastructure, software, and account support</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👩‍🏫
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Academic Advisors</h3>
+            <p class="text-gray-600">Course guidance, registration, and academic planning</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👩‍💼
+            </div>
+            <h3 class="text-lg font-bold text-gray-900 mb-2">Student Services</h3>
+            <p class="text-gray-600">General inquiries, campus life, and student resources</p>
+        </div>
+    </div>
+</div>
+
+<!-- Emergency Support -->
+<div class="bg-red-50 border border-red-200 rounded-2xl p-8 mb-16">
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-2xl font-black text-red-900">Emergency Support</h2>
+        <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center text-white text-2xl">
+            🚨
+        </div>
+    </div>
+    <p class="text-red-700 mb-4">For urgent matters requiring immediate attention:</p>
+    <div class="grid md:grid-cols-2 gap-6">
+        <div>
+            <p class="font-bold text-red-900 mb-2">24/7 Emergency Hotline:</p>
+            <p class="text-2xl font-black text-red-600">+1 (800) EMERGENCY</p>
+            <p class="text-red-600">+1 (800) 367-3736</p>
+        </div>
+        <div>
+            <p class="font-bold text-red-900 mb-2">Campus Security:</p>
+            <p class="text-2xl font-black text-red-600">+1 (800) SECURITY</p>
+            <p class="text-red-600">+1 (800) 732-3789</p>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

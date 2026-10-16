@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Course | College ERP</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#10B981',
+        secondary: '#4F46E5'
+      }
+    }
+  }
+}
+</script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-emerald-100 via-indigo-100 to-cyan-100">
+
+<div class="fixed inset-0 -z-10">
+<img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+class="w-full h-full object-cover opacity-20">
+</div>
+
+<div class="min-h-screen flex items-center justify-center p-6">
+
+<div class="w-full max-w-5xl bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10">
+
+<div class="text-center mb-10">
+<h1 class="text-4xl font-extrabold text-secondary mb-3">Edit Course</h1>
+<p class="text-gray-600">Update course information</p>
+</div>
+
+<form method="POST" action="{% url 'course_edit' course.id %}" enctype="multipart/form-data" class="space-y-10">
+{% csrf_token %}
+
+<!-- Basic Information -->
+
+<div>
+
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">
+Basic Information
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Course Name *</label>
+<input type="text" name="coursename" value="{{ course.coursename }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Course Code *</label>
+<input type="text" name="coursecode" value="{{ course.coursecode }}" readonly
+class="w-full px-4 py-3 rounded-xl border bg-gray-100">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Department *</label>
+
+<select name="department" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+
+<option value="Computer Science" {% if course.department == "Computer Science" %}selected{% endif %}>Computer Science</option>
+
+<option value="Electronics" {% if course.department == "Electronics" %}selected{% endif %}>Electronics</option>
+
+<option value="Mechanical" {% if course.department == "Mechanical" %}selected{% endif %}>Mechanical</option>
+
+<option value="Commerce" {% if course.department == "Commerce" %}selected{% endif %}>Commerce</option>
+
+<option value="Management" {% if course.department == "Management" %}selected{% endif %}>Management</option>
+
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Course Type *</label>
+
+<select name="coursetype"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+
+<option value="Theory" {% if course.coursetype == "Theory" %}selected{% endif %}>Theory</option>
+<option value="Practical" {% if course.coursetype == "Practical" %}selected{% endif %}>Practical</option>
+<option value="Lab" {% if course.coursetype == "Lab" %}selected{% endif %}>Lab</option>
+<option value="Project" {% if course.coursetype == "Project" %}selected{% endif %}>Project</option>
+
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Semester *</label>
+<input type="text" name="semester" value="{{ course.semester }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Credits *</label>
+<input type="number" name="credits" value="{{ course.credits }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+</div>
+</div>
+
+<!-- Academic Details -->
+
+<div>
+
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">
+Academic Details
+</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Assigned Faculty *</label>
+<input type="text" name="faculty" value="{{ course.faculty }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Maximum Students *</label>
+<input type="number" name="maxstudents" value="{{ course.maxstudents }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Duration (weeks) *</label>
+<input type="number" name="duration" value="{{ course.duration }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Start Date *</label>
+<input type="date" name="startdate" value="{{ course.startdate }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">End Date *</label>
+<input type="date" name="enddate" value="{{ course.enddate }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Course Fee *</label>
+<input type="number" name="coursefee" value="{{ course.coursefee }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">
+</div>
+
+</div>
+</div>
+
+<!-- Description -->
+
+<div>
+
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">
+Course Description
+</h2>
+
+<textarea name="description" rows="4"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary">{{ course.description }}</textarea>
+
+</div>
+
+<!-- File Upload -->
+
+<div>
+
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">
+Update Course Material
+</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Syllabus</label>
+<input type="file" name="syllabus" class="w-full border rounded-xl p-3">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Course Image</label>
+<input type="file" name="image" class="w-full border rounded-xl p-3">
+</div>
+
+</div>
+</div>
+
+<!-- Buttons -->
+
+<div class="flex justify-center space-x-6 pt-6">
+
+<button type="reset"
+class="px-8 py-3 bg-gray-300 rounded-xl hover:bg-gray-400">
+Reset
+</button>
+
+<button type="submit"
+class="px-10 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:scale-105">
+Update Course
+</button>
+
+</div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

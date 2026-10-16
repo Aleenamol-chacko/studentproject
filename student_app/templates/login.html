@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login | Aetherium University</title>
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Poppins', sans-serif;
+}
+</style>
+
+</head>
+
+<body class="relative min-h-screen flex items-center justify-center overflow-hidden">
+
+<!-- Background Image -->
+<div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80"
+         class="w-full h-full object-cover">
+</div>
+
+<!-- Gradient Overlay -->
+<div class="absolute inset-0 bg-gradient-to-br from-indigo-900/80 via-blue-900/70 to-cyan-800/80"></div>
+
+<!-- Login Card -->
+<div class="relative z-10 w-full max-w-md p-8">
+
+    <div class="bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl shadow-2xl p-10 text-white">
+
+        <!-- Logo / Title -->
+        <div class="text-center mb-8">
+            <h2 class="text-3xl font-bold bg-gradient-to-r from-cyan-300 to-indigo-300 bg-clip-text text-transparent">
+                Welcome Back
+            </h2>
+            <p class="text-gray-300 text-sm mt-2">Login to continue your journey</p>
+        </div>
+
+        <!-- Form -->
+       <form class="space-y-6" method="POST">
+            {% csrf_token %}
+
+            <!-- Email -->
+            <div class="relative">
+                <input type="text" name="username" required
+                    class="peer w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"
+                    placeholder="Username">
+                <label class="absolute left-4 -top-2.5 text-sm text-cyan-300 bg-indigo-900 px-1 transition-all
+                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-300
+                    peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyan-300">
+                    Username
+                </label>
+            </div>
+
+            <!-- Password -->
+            <div class="relative">
+                <input type="password" name="password" id="password" required
+                    class="peer w-full px-4 py-3 bg-white/10 border border-white/30 rounded-xl placeholder-transparent focus:outline-none focus:ring-2 focus:ring-cyan-400 text-white"
+                    placeholder="Password">
+                <label class="absolute left-4 -top-2.5 text-sm text-cyan-300 bg-indigo-900 px-1 transition-all
+                    peer-placeholder-shown:top-3 peer-placeholder-shown:text-gray-300
+                    peer-placeholder-shown:text-base peer-focus:-top-2.5 peer-focus:text-sm peer-focus:text-cyan-300">
+                    Password
+                </label>
+
+                <!-- Show Password Button -->
+                <button type="button" onclick="togglePassword()"
+                    class="absolute right-4 top-3 text-sm text-gray-300 hover:text-cyan-300">
+                    Show
+                </button>
+            </div>
+
+            <!-- Remember + Forgot -->
+            <div class="flex justify-between items-center text-sm text-gray-300">
+                <label class="flex items-center space-x-2">
+                    <input type="checkbox" class="accent-cyan-400">
+                    <span>Remember Me</span>
+                </label>
+                <a href="#" class="hover:text-cyan-300">Forgot Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit"
+                class="w-full bg-cyan-400 text-indigo-900 font-semibold py-3 rounded-xl shadow-lg hover:bg-cyan-300 hover:scale-105 transition duration-300">
+                Login
+            </button>
+
+        </form>
+
+        <!-- Divider -->
+        <div class="flex items-center my-6">
+            <div class="flex-grow h-px bg-white/20"></div>
+            <span class="px-4 text-gray-300 text-sm">OR</span>
+            <div class="flex-grow h-px bg-white/20"></div>
+        </div>
+
+        <!-- Social Buttons -->
+        <div class="grid grid-cols-2 gap-4">
+
+            <button class="bg-white text-gray-800 py-2 rounded-xl hover:scale-105 transition">
+                Google
+            </button>
+
+            <button class="bg-blue-600 py-2 rounded-xl hover:scale-105 transition">
+                Facebook
+            </button>
+
+        </div>
+
+        <!-- Register -->
+        <p class="text-center text-sm text-gray-300 mt-6">
+            Don't have an account?
+            <a href="{% url 'register' %}" class="text-cyan-300 hover:underline">Register</a>
+        </p>
+
+    </div>
+
+</div>
+
+<!-- Password Toggle Script -->
+<script>
+function togglePassword() {
+    const password = document.getElementById("password");
+    password.type = password.type === "password" ? "text" : "password";
+}
+
+</script>
+
+</body>
+</html>

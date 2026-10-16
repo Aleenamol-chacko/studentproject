@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admissions Office | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-indigo-600 font-bold">Admissions</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Admissions Office</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Your gateway to excellence. Join our global community of innovators and leaders.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <a href="{% url 'register' %}" class="bg-white text-indigo-600 px-8 py-4 rounded-full font-bold btn-hover">
+                Apply Now
+            </a>
+            <a href="#" class="border-2 border-white text-white px-8 py-4 rounded-full font-bold hover:bg-white hover:text-indigo-600 transition">
+                Download Brochure
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Admissions Process -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Admissions Process</h2>
+    
+    <div class="grid md:grid-cols-4 gap-6">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                1
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Choose Program</h3>
+            <p class="text-gray-600">Select from our wide range of undergraduate, graduate, and doctoral programs</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                2
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Submit Application</h3>
+            <p class="text-gray-600">Complete the online application form with required documents</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                3
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Review & Interview</h3>
+            <p class="text-gray-600">Application review and potential interview process</p>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-amber-500 to-orange-600 rounded-full flex items-center justify-center text-white text-2xl font-bold mx-auto mb-4">
+                4
+            </div>
+            <h3 class="text-lg font-bold mb-2 text-gray-900">Receive Decision</h3>
+            <p class="text-gray-600">Get your admission decision and next steps</p>
+        </div>
+    </div>
+</div>
+
+<!-- Important Dates -->
+<div class="grid md:grid-cols-2 gap-8 mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Important Dates</h2>
+        <div class="space-y-4">
+            <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                <span>Early Application Deadline</span>
+                <span class="font-bold">March 15, 2026</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                <span>Regular Application Deadline</span>
+                <span class="font-bold">May 31, 2026</span>
+            </div>
+            <div class="flex justify-between items-center border-b border-white/20 pb-3">
+                <span>Decision Notification</span>
+                <span class="font-bold">June 15, 2026</span>
+            </div>
+            <div class="flex justify-between items-center">
+                <span>Fall Semester Begins</span>
+                <span class="font-bold">August 25, 2026</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-8">
+        <h2 class="text-2xl font-black mb-6">Application Requirements</h2>
+        <div class="space-y-3">
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">📄</span>
+                <span>Completed application form</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🎓</span>
+                <span>Academic transcripts</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">📝</span>
+                <span>Personal statement</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">💬</span>
+                <span>Letters of recommendation</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">📊</span>
+                <span>Test scores (SAT/ACT/GRE)</span>
+            </div>
+            <div class="flex items-center space-x-3">
+                <span class="text-xl">🌍</span>
+                <span>English proficiency (if applicable)</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Tuition & Financial Aid -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Tuition & Financial Aid</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Undergraduate</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Tuition (per year)</span>
+                    <span class="font-bold text-gray-900">$45,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Room & Board</span>
+                    <span class="font-bold text-gray-900">$15,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Books & Supplies</span>
+                    <span class="font-bold text-gray-900">$2,000</span>
+                </div>
+                <div class="border-t pt-3">
+                    <div class="flex justify-between">
+                        <span class="font-bold">Total</span>
+                        <span class="font-black text-indigo-600">$62,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Graduate</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Tuition (per year)</span>
+                    <span class="font-bold text-gray-900">$55,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Room & Board</span>
+                    <span class="font-bold text-gray-900">$15,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Books & Supplies</span>
+                    <span class="font-bold text-gray-900">$2,500</span>
+                </div>
+                <div class="border-t pt-3">
+                    <div class="flex justify-between">
+                        <span class="font-bold">Total</span>
+                        <span class="font-black text-indigo-600">$72,500</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-gray-50 rounded-xl p-6">
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Doctoral</h3>
+            <div class="space-y-3">
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Tuition (per year)</span>
+                    <span class="font-bold text-gray-900">$65,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Research Funding</span>
+                    <span class="font-bold text-green-600">-$20,000</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-gray-600">Living Expenses</span>
+                    <span class="font-bold text-gray-900">$18,000</span>
+                </div>
+                <div class="border-t pt-3">
+                    <div class="flex justify-between">
+                        <span class="font-bold">Total</span>
+                        <span class="font-black text-indigo-600">$63,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 rounded-xl p-6 border border-amber-200">
+        <h3 class="text-xl font-bold mb-4 text-gray-900">Financial Aid Options</h3>
+        <div class="grid md:grid-cols-2 gap-6">
+            <div>
+                <h4 class="font-bold text-gray-900 mb-2">🎓 Scholarships</h4>
+                <p class="text-gray-600">Merit-based scholarships up to 100% tuition coverage</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-2">💰 Financial Aid</h4>
+                <p class="text-gray-600">Need-based grants and loans available</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-2">🏆 Assistantships</h4>
+                <p class="text-gray-600">Research and teaching assistantships for graduate students</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-gray-900 mb-2">🌍 International Aid</h4>
+                <p class="text-gray-600">Special funding for international students</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Admissions -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-6">Contact Admissions Office</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4">Office Information</h3>
+            <div class="space-y-3 text-white/90">
+                <p>📍 Building 1, Room 101</p>
+                <p>📞 +1 (800) ADMISSION</p>
+                <p>📞 +1 (800) 236-4728</p>
+                <p>📧 admissions@aetherium.edu</p>
+                <p>🕐 Monday - Friday: 9:00 AM - 5:00 PM</p>
+                <p>🕐 Saturday: 10:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4">Schedule a Visit</h3>
+            <p class="text-white/90 mb-4">
+                Experience our campus firsthand. Schedule a personalized tour and meet with admissions counselors.
+            </p>
+            <div class="space-y-3">
+                <button class="bg-white text-indigo-600 px-6 py-3 rounded-xl font-bold btn-hover w-full">
+                    Schedule Campus Tour
+                </button>
+                <button class="border-2 border-white text-white px-6 py-3 rounded-xl font-bold hover:bg-white hover:text-indigo-600 transition w-full">
+                    Virtual Information Session
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Programs by Category -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Programs by Category</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div>
+            <h3 class="text-lg font-bold mb-4 text-gray-900">🔬 Engineering</h3>
+            <ul class="space-y-2 text-gray-600">
+                <li>• Computer Science</li>
+                <li>• Artificial Intelligence</li>
+                <li>• Mechanical Engineering</li>
+                <li>• Civil Engineering</li>
+                <li>• Electrical Engineering</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="text-lg font-bold mb-4 text-gray-900">💼 Business</h3>
+            <ul class="space-y-2 text-gray-600">
+                <li>• Business Administration</li>
+                <li>• Finance</li>
+                <li>• Marketing</li>
+                <li>• International Business</li>
+                <li>• Entrepreneurship</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="text-lg font-bold mb-4 text-gray-900">🏥 Health Sciences</h3>
+            <ul class="space-y-2 text-gray-600">
+                <li>• Medicine</li>
+                <li>• Nursing</li>
+                <li>• Pharmacy</li>
+                <li>• Public Health</li>
+                <li>• Biomedical Research</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h3 class="text-lg font-bold mb-4 text-gray-900">🎨 Arts & Sciences</h3>
+            <ul class="space-y-2 text-gray-600">
+                <li>• Psychology</li>
+                <li>• Economics</li>
+                <li>• Literature</li>
+                <li>• Philosophy</li>
+                <li>• Environmental Science</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Publications | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-indigo-600 font-bold">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Publications</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            Discover cutting-edge research and scholarly contributions from our world-class faculty and researchers.
+        </p>
+    </div>
+</div>
+
+<!-- Search and Filter -->
+<div class="bg-white rounded-2xl shadow-xl p-6 mb-16 border border-gray-100">
+    <div class="grid md:grid-cols-4 gap-4">
+        <div class="md:col-span-2">
+            <input type="text" placeholder="🔍 Search publications..." 
+                   class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+        </div>
+        <select class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+            <option>All Categories</option>
+            <option>Computer Science</option>
+            <option>Engineering</option>
+            <option>Medicine</option>
+            <option>Physics</option>
+            <option>Chemistry</option>
+            <option>Biology</option>
+        </select>
+        <select class="px-4 py-3 rounded-xl border border-gray-300 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none">
+            <option>All Years</option>
+            <option>2026</option>
+            <option>2025</option>
+            <option>2024</option>
+            <option>2023</option>
+        </select>
+    </div>
+</div>
+
+<!-- Recent Publications -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Recent Publications</h2>
+    
+    <div class="space-y-6">
+        <!-- Publication 1 -->
+        <div class="border-l-4 border-indigo-600 pl-6 py-4 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-gray-900">"Deep Learning Applications in Medical Imaging: A Comprehensive Review"</h3>
+                <span class="bg-indigo-100 text-indigo-700 px-3 py-1 rounded-full text-sm font-medium">AI/ML</span>
+            </div>
+            <p class="text-gray-600 mb-3">
+                This comprehensive review explores the latest advances in deep learning applications for medical imaging, 
+                including diagnostic accuracy improvements, automated detection systems, and future research directions.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500 mb-3">
+                <span>👥 Dr. Sarah Chen, Prof. Michael Roberts</span>
+                <span>📅 March 2026</span>
+                <span>📚 Nature Medicine</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-indigo-600 font-medium">🔗 DOI: 10.1038/s41591-026-01234</span>
+                <span class="text-green-600 font-medium">📈 245 citations</span>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium">Download PDF</button>
+            </div>
+        </div>
+        
+        <!-- Publication 2 -->
+        <div class="border-l-4 border-purple-600 pl-6 py-4 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-gray-900">"Quantum Computing Applications in Cryptography: New Frontiers"</h3>
+                <span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium">Quantum</span>
+            </div>
+            <p class="text-gray-600 mb-3">
+                An exploration of quantum computing's transformative potential in cryptographic systems, analyzing 
+                both threats to current encryption and opportunities for quantum-resistant security protocols.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500 mb-3">
+                <span>👥 Dr. James Wilson, Dr. Lisa Zhang</span>
+                <span>📅 February 2026</span>
+                <span>📚 Science Advances</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-indigo-600 font-medium">🔗 DOI: 10.1126/sciadv.abc1234</span>
+                <span class="text-green-600 font-medium">📈 189 citations</span>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium">Download PDF</button>
+            </div>
+        </div>
+        
+        <!-- Publication 3 -->
+        <div class="border-l-4 border-green-600 pl-6 py-4 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-gray-900">"Sustainable Nanomaterials for Environmental Remediation"</h3>
+                <span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">Nanotech</span>
+            </div>
+            <p class="text-gray-600 mb-3">
+                This study presents novel nanomaterials designed for environmental cleanup applications, 
+                demonstrating high efficiency in removing pollutants from water and soil systems.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500 mb-3">
+                <span>👥 Prof. Emma Thompson, Dr. Robert Kim</span>
+                <span>📅 January 2026</span>
+                <span>📚 Environmental Science & Technology</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-indigo-600 font-medium">🔗 DOI: 10.1021/acs.est.5c01234</span>
+                <span class="text-green-600 font-medium">📈 156 citations</span>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium">Download PDF</button>
+            </div>
+        </div>
+        
+        <!-- Publication 4 -->
+        <div class="border-l-4 border-blue-600 pl-6 py-4 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-gray-900">"Autonomous Robotics in Manufacturing: Industry 4.0 Integration"</h3>
+                <span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">Robotics</span>
+            </div>
+            <p class="text-gray-600 mb-3">
+                Analysis of autonomous robotic systems in modern manufacturing environments, focusing on 
+                integration challenges, efficiency improvements, and economic impacts on production.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500 mb-3">
+                <span>👥 Dr. Carlos Rodriguez, Prof. Maria Silva</span>
+                <span>📅 December 2025</span>
+                <span>📚 IEEE Robotics & Automation</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-indigo-600 font-medium">🔗 DOI: 10.1109/TRO.2025.1234567</span>
+                <span class="text-green-600 font-medium">📈 134 citations</span>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium">Download PDF</button>
+            </div>
+        </div>
+        
+        <!-- Publication 5 -->
+        <div class="border-l-4 border-amber-600 pl-6 py-4 hover:bg-gray-50 transition">
+            <div class="flex justify-between items-start mb-3">
+                <h3 class="text-xl font-bold text-gray-900">"Climate Change Impacts on Global Food Security: A Data-Driven Analysis"</h3>
+                <span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-sm font-medium">Climate</span>
+            </div>
+            <p class="text-gray-600 mb-3">
+                Comprehensive analysis using machine learning to predict climate change effects on agricultural 
+                productivity and food security across different regions globally.
+            </p>
+            <div class="flex items-center space-x-6 text-sm text-gray-500 mb-3">
+                <span>👥 Dr. Ahmed Hassan, Prof. Jennifer Lee</span>
+                <span>📅 November 2025</span>
+                <span>📚 Nature Climate Change</span>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="text-indigo-600 font-medium">🔗 DOI: 10.1038/s41558-025-01234</span>
+                <span class="text-green-600 font-medium">📈 198 citations</span>
+                <button class="text-indigo-600 hover:text-indigo-700 font-medium">Download PDF</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold btn-hover">
+            Load More Publications
+        </button>
+    </div>
+</div>
+
+<!-- Publication Statistics -->
+<div class="grid md:grid-cols-4 gap-6 mb-16">
+    <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">500+</div>
+        <div class="text-white/90">Total Publications</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">15,000+</div>
+        <div class="text-white/90">Total Citations</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">45</div>
+        <div class="text-white/90">H-Index</div>
+    </div>
+    
+    <div class="bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-2xl p-6 text-center">
+        <div class="text-4xl font-black mb-2">25</div>
+        <div class="text-white/90">Patents Filed</div>
+    </div>
+</div>
+
+<!-- Top Journals -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Publications in Top Journals</h2>
+    
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center">
+                    <span class="text-red-600 font-bold text-sm">N</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Nature</h3>
+                    <p class="text-sm text-gray-600">42 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 64.8</p>
+                <p>Category: Multidisciplinary</p>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <span class="text-blue-600 font-bold text-sm">S</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Science</h3>
+                    <p class="text-sm text-gray-600">38 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 56.9</p>
+                <p>Category: Multidisciplinary</p>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                    <span class="text-purple-600 font-bold text-sm">C</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Cell</h3>
+                    <p class="text-sm text-gray-600">25 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 45.5</p>
+                <p>Category: Biology</p>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                    <span class="text-green-600 font-bold text-sm">P</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">PRL</h3>
+                    <p class="text-sm text-gray-600">31 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 8.6</p>
+                <p>Category: Physics</p>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                    <span class="text-indigo-600 font-bold text-sm">J</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">JAMA</h3>
+                    <p class="text-sm text-gray-600">18 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 157.3</p>
+                <p>Category: Medicine</p>
+            </div>
+        </div>
+        
+        <div class="border border-gray-200 rounded-xl p-6 hover:shadow-lg transition">
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center">
+                    <span class="text-amber-600 font-bold text-sm">L</span>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900">Lancet</h3>
+                    <p class="text-sm text-gray-600">22 publications</p>
+                </div>
+            </div>
+            <div class="text-sm text-gray-600">
+                <p>Impact Factor: 168.9</p>
+                <p>Category: Medicine</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Author Spotlight -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Featured Researchers</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👨‍🔬
+            </div>
+            <h3 class="text-xl font-bold mb-2">Dr. Sarah Chen</h3>
+            <p class="text-white/90 mb-3">AI Research Center</p>
+            <div class="space-y-1 text-white/80 text-sm">
+                <p>📚 45 Publications</p>
+                <p>📈 2,340 Citations</p>
+                <p>🏆 Nature Award 2025</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👩‍🔬
+            </div>
+            <h3 class="text-xl font-bold mb-2">Prof. Emma Thompson</h3>
+            <p class="text-white/90 mb-3">Nanotechnology Center</p>
+            <div class="space-y-1 text-white/80 text-sm">
+                <p>📚 38 Publications</p>
+                <p>📈 1,890 Citations</p>
+                <p>🏆 Nobel Nominee 2025</p>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center text-white text-3xl mx-auto mb-4">
+                👨‍🔬
+            </div>
+            <h3 class="text-xl font-bold mb-2">Dr. James Wilson</h3>
+            <p class="text-white/90 mb-3">Quantum Computing Center</p>
+            <div class="space-y-1 text-white/80 text-sm">
+                <p>📚 32 Publications</p>
+                <p>📈 1,567 Citations</p>
+                <p>🏆 Breakthrough Prize 2025</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Download Center -->
+<div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Research Archive</h2>
+    
+    <div class="grid md:grid-cols-2 gap-8">
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Download Complete Research Papers</h3>
+            <p class="text-gray-600 mb-6">
+                Access our complete archive of research publications, conference papers, and technical reports.
+            </p>
+            <div class="space-y-4">
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-indigo-700 transition w-full">
+                    📥 Download All 2026 Publications
+                </button>
+                <button class="bg-purple-600 text-white px-6 py-3 rounded-xl font-medium hover:bg-purple-700 transition w-full">
+                    📥 Download Complete Archive (2020-2026)
+                </button>
+                <button class="border border-gray-300 text-gray-700 px-6 py-3 rounded-xl font-medium hover:bg-gray-50 transition w-full">
+                    📊 Request Custom Bibliography
+                </button>
+            </div>
+        </div>
+        
+        <div>
+            <h3 class="text-xl font-bold mb-4 text-gray-900">Citation Guidelines</h3>
+            <p class="text-gray-600 mb-4">
+                When citing our research, please use the following format:
+            </p>
+            <div class="bg-gray-50 rounded-lg p-4 font-mono text-sm text-gray-700 mb-4">
+                Author(s), Year, Title, Journal, Volume(Issue), Pages, DOI
+            </div>
+            <div class="space-y-2 text-gray-600">
+                <p>📧 For citation requests: publications@aetherium.edu</p>
+                <p>📞 Research Office: +1 (800) RESEARCH</p>
+                <p>🌐 Online database: research.aetherium.edu/publications</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research Centers | Aetherium Global University</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Inter', sans-serif;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #a855f7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
+.card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+.btn-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+}
+</style>
+</head>
+
+<body class="min-h-screen bg-gray-50">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80"
+         class="w-full h-full object-cover opacity-10">
+</div>
+
+<!-- Modern Navigation -->
+<nav class="fixed top-0 w-full bg-white/90 backdrop-blur-lg border-b border-gray-100 z-50">
+    <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center h-16">
+            <div class="flex items-center space-x-8">
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg"></div>
+                    <span class="text-xl font-bold text-gradient">Aetherium</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="{% url 'index' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Programs</a>
+                    <a href="#" class="text-indigo-600 font-bold">Research</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Campus</a>
+                    <a href="#" class="text-gray-600 hover:text-indigo-600 font-medium transition">Contact</a>
+                </div>
+            </div>
+            <div class="flex items-center space-x-4">
+                <a href="{% url 'login' %}" class="text-gray-600 hover:text-indigo-600 font-medium transition">Login</a>
+                <a href="{% url 'register' %}" class="bg-indigo-600 text-white px-5 py-2 rounded-full font-medium btn-hover">
+                    Apply Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="pt-20 px-6 max-w-7xl mx-auto">
+
+<!-- Hero Section -->
+<div class="relative min-h-[60vh] flex items-center justify-center mb-16 rounded-3xl overflow-hidden">
+    <div class="absolute inset-0">
+        <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1920&q=80" 
+             class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-indigo-900/90 to-purple-900/90"></div>
+    </div>
+    
+    <div class="relative z-10 text-center text-white px-6 max-w-4xl mx-auto">
+        <h1 class="text-5xl md:text-6xl font-black mb-6">Research Centers</h1>
+        <p class="text-xl text-white/90 max-w-2xl mx-auto">
+            World-class research facilities driving innovation and discovery across multiple disciplines.
+        </p>
+    </div>
+</div>
+
+<!-- Research Centers Grid -->
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+    <!-- AI Research Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-indigo-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                AI/ML
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Artificial Intelligence Research Center</h3>
+            <p class="text-gray-600 mb-4">Cutting-edge research in machine learning, deep learning, natural language processing, and computer vision.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Floor 2</p>
+                <p>👥 45 Researchers</p>
+                <p>🔬 12 Active Projects</p>
+            </div>
+            <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+    
+    <!-- Biomedical Research Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1576091160553-5a3c904b5fc?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Medical
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Biomedical Research Center</h3>
+            <p class="text-gray-600 mb-4">Advanced biomedical research focusing on genomics, drug discovery, and personalized medicine.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 5, Floor 1</p>
+                <p>👥 38 Researchers</p>
+                <p>🔬 15 Active Projects</p>
+            </div>
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+    
+    <!-- Quantum Computing Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Quantum
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Quantum Computing Center</h3>
+            <p class="text-gray-600 mb-4">Pioneering research in quantum algorithms, quantum cryptography, and quantum information theory.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Floor 3</p>
+                <p>👥 22 Researchers</p>
+                <p>🔬 8 Active Projects</p>
+            </div>
+            <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+    
+    <!-- Environmental Science Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-emerald-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Environment
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Environmental Science Center</h3>
+            <p class="text-gray-600 mb-4">Research on climate change, renewable energy, sustainable technologies, and conservation.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 6, Floor 2</p>
+                <p>👥 28 Researchers</p>
+                <p>🔬 10 Active Projects</p>
+            </div>
+            <button class="bg-emerald-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-emerald-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+    
+    <!-- Robotics Research Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Robotics
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Robotics Research Center</h3>
+            <p class="text-gray-600 mb-4">Innovative research in autonomous systems, human-robot interaction, and industrial automation.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Floor 1</p>
+                <p>👥 35 Researchers</p>
+                <p>🔬 14 Active Projects</p>
+            </div>
+            <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+    
+    <!-- Nanotechnology Center -->
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden card-hover border border-gray-100">
+        <div class="relative h-48 overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1630823216564-1c7b06406d5b?auto=format&fit=crop&w=800&q=80" 
+                 class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-cyan-600 text-white px-3 py-1 rounded-full text-sm font-bold">
+                Nano
+            </div>
+        </div>
+        <div class="p-6">
+            <h3 class="text-xl font-bold mb-3 text-gray-900">Nanotechnology Research Center</h3>
+            <p class="text-gray-600 mb-4">Advanced research in nanomaterials, nanoelectronics, and nanomedicine applications.</p>
+            <div class="space-y-2 text-sm text-gray-500 mb-4">
+                <p>📍 Building 3, Floor 4</p>
+                <p>👥 30 Researchers</p>
+                <p>🔬 11 Active Projects</p>
+            </div>
+            <button class="bg-cyan-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-cyan-700 transition w-full">
+                Explore Research
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Research Statistics -->
+<div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-2xl p-8 mb-16">
+    <h2 class="text-3xl font-black mb-8">Research Impact</h2>
+    
+    <div class="grid md:grid-cols-4 gap-8">
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">$45M</div>
+            <div class="text-lg text-white/90">Annual Research Funding</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">500+</div>
+            <div class="text-lg text-white/90">Publications Yearly</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">180</div>
+            <div class="text-lg text-white/90">Research Faculty</div>
+        </div>
+        <div class="text-center">
+            <div class="text-5xl font-black mb-2">25</div>
+            <div class="text-lg text-white/90">Patents Filed</div>
+        </div>
+    </div>
+</div>
+
+<!-- Research Opportunities -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Research Opportunities</h2>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🎓
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">For Students</h3>
+            <p class="text-gray-600 mb-4">Join cutting-edge research projects and work alongside world-renowned faculty.</p>
+            <ul class="text-left text-gray-600 space-y-2 mb-4">
+                <li>• Undergraduate research programs</li>
+                <li>• Graduate assistantships</li>
+                <li>• Summer research internships</li>
+                <li>• Thesis opportunities</li>
+            </ul>
+            <button class="bg-indigo-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-indigo-700 transition w-full">
+                Apply Now
+            </button>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🤝
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">For Industry</h3>
+            <p class="text-gray-600 mb-4">Partner with our research centers to solve real-world challenges and drive innovation.</p>
+            <ul class="text-left text-gray-600 space-y-2 mb-4">
+                <li>• Collaborative research projects</li>
+                <li>• Technology transfer</li>
+                <li>• Consulting services</li>
+                <li>• Custom research solutions</li>
+            </ul>
+            <button class="bg-purple-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-purple-700 transition w-full">
+                Partner With Us
+            </button>
+        </div>
+        
+        <div class="text-center">
+            <div class="w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-600 rounded-xl flex items-center justify-center text-white text-2xl mx-auto mb-4">
+                🌍
+            </div>
+            <h3 class="text-xl font-bold mb-3 text-gray-900">For Researchers</h3>
+            <p class="text-gray-600 mb-4">Join our world-class research community and access state-of-the-art facilities.</p>
+            <ul class="text-left text-gray-600 space-y-2 mb-4">
+                <li>• Faculty positions</li>
+                <li>• Postdoctoral fellowships</li>
+                <li>• Visiting scholar programs</li>
+                <li>• Research grants</li>
+            </ul>
+            <button class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition w-full">
+                Join Our Team
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Publications -->
+<div class="bg-white rounded-2xl shadow-xl p-8 mb-16 border border-gray-100">
+    <h2 class="text-3xl font-black mb-8 text-gray-900">Recent Publications</h2>
+    
+    <div class="space-y-6">
+        <div class="border-b border-gray-200 pb-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">"Deep Learning Applications in Medical Imaging: A Comprehensive Review"</h3>
+            <p class="text-gray-600 mb-3">Dr. Sarah Chen, Prof. Michael Roberts - AI Research Center</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+                <span>📚 Nature Medicine</span>
+                <span>📅 March 2026</span>
+                <span>🔗 DOI: 10.1038/s41591-026-01234</span>
+            </div>
+        </div>
+        
+        <div class="border-b border-gray-200 pb-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">"Quantum Computing Applications in Cryptography: New Frontiers"</h3>
+            <p class="text-gray-600 mb-3">Dr. James Wilson, Dr. Lisa Zhang - Quantum Computing Center</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+                <span>📚 Science Advances</span>
+                <span>📅 February 2026</span>
+                <span>🔗 DOI: 10.1126/sciadv.abc1234</span>
+            </div>
+        </div>
+        
+        <div class="border-b border-gray-200 pb-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2">"Sustainable Nanomaterials for Environmental Remediation"</h3>
+            <p class="text-gray-600 mb-3">Prof. Emma Thompson, Dr. Robert Kim - Nanotechnology Center</p>
+            <div class="flex items-center space-x-4 text-sm text-gray-500">
+                <span>📚 Environmental Science & Technology</span>
+                <span>📅 January 2026</span>
+                <span>🔗 DOI: 10.1021/acs.est.5c01234</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="text-center mt-8">
+        <button class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold btn-hover">
+            View All Publications
+        </button>
+    </div>
+</div>
+
+</div>
+
+</body>
+</html>

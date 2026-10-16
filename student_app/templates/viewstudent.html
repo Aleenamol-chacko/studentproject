@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Student Profile</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-10">
+
+<div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-8">
+
+<h1 class="text-3xl font-bold mb-6">Student Profile</h1>
+
+<div class="grid grid-cols-2 gap-6">
+
+<div>
+<p><b>Full Name:</b> {{ student.fullname }}</p>
+<p><b>Student ID:</b> {{ student.studentid }}</p>
+<p><b>Date of Birth:</b> {{ student.dob }}</p>
+<p><b>Gender:</b> {{ student.gender }}</p>
+<p><b>Email:</b> {{ student.email }}</p>
+<p><b>Phone:</b> {{ student.phone }}</p>
+<p><b>Blood Group:</b> {{ student.bloodGrp }}</p>
+</div>
+
+<div>
+<p><b>Department:</b> {{ student.department }}</p>
+<p><b>Year:</b> {{ student.year }}</p>
+<p><b>Admission Date:</b> {{ student.admissiondate }}</p>
+<p><b>CGPA:</b> {{ student.cgpa }}</p>
+<p><b>City:</b> {{ student.city }}</p>
+<p><b>Address:</b> {{ student.address }}</p>
+</div>
+
+</div>
+
+<hr class="my-6">
+
+<h2 class="text-xl font-semibold mb-4">Documents</h2>
+
+{% if student.photo %}
+<img src="{{ student.photo.url }}" class="w-32 h-32 rounded mb-4">
+{% endif %}
+
+{% if student.id_proof %}
+<a href="{{ student.id_proof.url }}" target="_blank"
+class="text-blue-600 underline">
+View ID Proof
+</a>
+{% endif %}
+
+<div class="mt-6">
+<a href="{% url 'student' %}"
+class="px-4 py-2 bg-gray-600 text-white rounded">
+Back
+</a>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Faculty | College ERP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#0F172A',   // Slate
+        secondary: '#0284C7'  // Sky Blue
+      }
+    }
+  }
+}
+</script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-slate-100 via-sky-100 to-blue-100">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+  <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94"
+       class="w-full h-full object-cover opacity-20">
+</div>
+
+<div class="min-h-screen flex items-center justify-center p-6">
+
+<div class="w-full max-w-6xl bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10">
+
+<!-- Header -->
+<div class="text-center mb-10">
+  <h1 class="text-4xl font-extrabold text-primary mb-3">Add New Faculty</h1>
+  <p class="text-gray-600">Enter complete faculty academic and professional details</p>
+</div>
+<form method="POST" action="{% url 'faculty_add' %}" enctype="multipart/form-data">
+{% csrf_token %}
+
+<!-- Personal Information -->
+<div>
+<h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Personal Information</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="fullname" required minlength="3"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Date of Birth *</label>
+<input type="date" name="dob" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Gender *</label>
+<select name="gender" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+<option value="">Select</option>
+<option value="Male">Male</option>
+<option value="Female">Female</option>
+<option value="Other">Other</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Email *</label>
+<input type="email" name="email" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Phone *</label>
+<input type="tel" name="phone" pattern="[0-9]{10}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Blood Group</label>
+<select name="bloodgroup"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+<option value="">Select</option>
+<option value="A+">A+</option><option value="A-">A-</option>
+<option value="B+">B+</option><option value="B-">B-</option>
+<option value="O+">O+</option><option value="O-">O-</option>
+<option value="AB+">AB+</option><option value="AB-">AB-</option>
+</select>
+</div>
+
+</div>
+</div>
+
+<!-- Professional Information -->
+<div>
+<h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Professional Information</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Faculty ID *</label>
+<input type="text" name="facultyid" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Department *</label>
+<select name="department" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+<option value="">Select Department</option>
+<option value="Computer Science">Computer Science</option>
+<option value="Electronics">Electronics</option>
+<option value="Mechanical">Mechanical</option>
+<option value="Commerce">Commerce</option>
+<option value="Management">Management</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Designation *</label>
+<select name="designation" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+<option value="">Select</option>
+<option value="Professor">Professor</option>
+<option value="Associate Professor">Associate Professor</option>
+<option value="Assistant Professor">Assistant Professor</option>
+<option value="Lecturer">Lecturer</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Highest Qualification *</label>
+<input type="text" name="qualification" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Years of Experience *</label>
+<input type="number" name="experience" min="0" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Joining Date *</label>
+<input type="date" name="joining_date" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Salary *</label>
+<input type="number" name="salary" min="0" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Employment Type *</label>
+<select name="employment" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+<option value="">Select</option>
+<option value="Full Time">Full Time</option>
+<option value="Part Time">Part Time</option>
+<option value="Visiting">Visiting</option>
+</select>
+</div>
+
+</div>
+</div>
+
+<!-- Address -->
+<div>
+<h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Address Details</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Address *</label>
+<textarea name="address" rows="3" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none"></textarea>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">City / State *</label>
+<input type="text" name="city" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-secondary outline-none">
+</div>
+
+</div>
+</div>
+
+<!-- Documents -->
+<div>
+<h2 class="text-2xl font-bold text-secondary mb-6 border-b pb-2">Upload Documents</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Faculty Photo *</label>
+<input type="file" name="photo" accept="image/*" required
+class="w-full border rounded-xl p-3 bg-white">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Resume (PDF)</label>
+<input type="file" name="resume" accept=".pdf"
+class="w-full border rounded-xl p-3 bg-white">
+</div>
+
+</div>
+</div>
+
+<!-- Buttons -->
+<div class="flex justify-center space-x-6 pt-6">
+<button type="reset"
+class="px-8 py-3 bg-gray-300 rounded-xl hover:bg-gray-400 transition">
+Reset
+</button>
+
+<button type="submit"
+class="px-10 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:scale-105 transition">
+Add Faculty
+</button>
+</div>
+
+</form>

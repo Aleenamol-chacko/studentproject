@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Student | College ERP</title>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        primary: '#10B981',   // Emerald
+        secondary: '#4F46E5'  // Indigo
+      }
+    }
+  }
+}
+</script>
+
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-emerald-100 via-indigo-100 to-cyan-100">
+
+<!-- Background Image -->
+<div class="fixed inset-0 -z-10">
+  <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644"
+       class="w-full h-full object-cover opacity-20">
+</div>
+
+<div class="min-h-screen flex items-center justify-center p-6">
+
+<div class="w-full max-w-5xl bg-white/80 backdrop-blur-xl shadow-2xl rounded-3xl p-10">
+
+<!-- Header -->
+<div class="text-center mb-10">
+  <h1 class="text-4xl font-extrabold text-secondary mb-3">Edit Student</h1>
+  <p class="text-gray-600">Enter complete student academic and personal details</p>
+</div>
+
+<form class="space-y-8" method="POST" action="{% url 'student_edit' student.id %}" enctype="multipart/form-data">
+    {% csrf_token %}
+
+<!-- Personal Information -->
+<div>
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">Personal Information</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Full Name *</label>
+<input type="text" name="fullname" required minlength="3" value="{{ student.fullname }}"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Date of Birth *</label>
+<input type="date" name="dob" value="{{ student.dob|date:'Y-m-d' }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Gender *</label>
+<select name="gender" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+<option value="Male" {% if student.gender == "Male" %}selected{% endif %}>Male</option>
+<option value="Female" {% if student.gender == "Female" %}selected{% endif %}>Female</option>
+<option value="Other" {% if student.gender == "Other" %}selected{% endif %}>Other</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Email *</label>
+<input type="email" name="email" value="{{ student.email }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Phone *</label>
+<input type="tel" name="phone" value="{{ student.phone }}" required pattern="[0-9]{10}"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Blood Group</label>
+<select name="bloodGrp"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+<option value="A+" {% if student.bloodgroup == "A+" %}selected{% endif %}>A+</option>
+<option value="A-" {% if student.bloodgroup == "A-" %}selected{% endif %}>A-</option>
+<option value="B+" {% if student.bloodgroup == "B+" %}selected{% endif %}>B+</option>
+<option value="B-" {% if student.bloodgroup == "B-" %}selected{% endif %}>B-</option>
+<option value="O+" {% if student.bloodgroup == "O+" %}selected{% endif %}>O+</option>
+<option value="O-" {% if student.bloodgroup == "O-" %}selected{% endif %}>O-</option>
+<option value="AB+" {% if student.bloodgroup == "AB+" %}selected{% endif %}>AB+</option>
+<option value="AB-" {% if student.bloodgroup == "AB-" %}selected{% endif %}>AB-</option>
+</select>
+</div>
+
+</div>
+</div>
+
+<!-- Academic Information -->
+<div>
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">Academic Information</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Student ID *</label>
+<input type="text" name="studentid" value="{{ student.studentid }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Department *</label>
+<select name="department" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+<option value="Computer Science" {% if student.department == "Computer Science" %}selected{% endif %}>Computer Science</option>
+<option value="Electronics" {% if student.department == "Electronics" %}selected{% endif %}>Electronics</option>
+<option value="Mechanical" {% if student.department == "Mechanical" %}selected{% endif %}>Mechanical</option>
+<option value="Commerce" {% if student.department == "Commerce" %}selected{% endif %}>Commerce</option>
+<option value="Management" {% if student.department == "Management" %}selected{% endif %}>Management</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Year *</label>
+<select name="year" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+<option value="1st Year" {% if student.year == "1st Year" %}selected{% endif %}>1st Year</option>
+<option value="2nd Year" {% if student.year == "2nd Year" %}selected{% endif %}>2nd Year</option>
+<option value="3rd Year" {% if student.year == "3rd Year" %}selected{% endif %}>3rd Year</option>
+<option value="4th Year" {% if student.year == "4th Year" %}selected{% endif %}>4th Year</option>
+</select>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Admission Date *</label>
+<input type="date" name="admissiondate" value="{{ student.admissiondate|date:'Y-m-d' }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">Previous Qualification</label>
+<input type="text" name="qualification" value="{{ student.qualification }}"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">CGPA / Percentage</label>
+<input type="number" name="cgpa" step="0.01" min="0" max="100" value="{{ student.cgpa }}"
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+</div>
+</div>
+
+<!-- Address -->
+<div>
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">Address Details</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Permanent Address *</label>
+<textarea name="address" rows="3" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">{{ student.address }}</textarea>
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">City / State *</label>
+<input type="text" name="city" value="{{ student.city }}" required
+class="w-full px-4 py-3 rounded-xl border focus:ring-2 focus:ring-primary outline-none">
+</div>
+
+</div>
+</div>
+
+<!-- Documents -->
+<div>
+<h2 class="text-2xl font-bold text-primary mb-6 border-b pb-2">Upload Documents</h2>
+
+<div class="grid md:grid-cols-2 gap-6">
+
+<div>
+<label class="block text-sm font-medium mb-1">Student Photo *</label>
+{% if student.photo %}
+<img src="{{ student.photo.url }}" class="w-24 h-24 rounded mb-2">
+{% endif %}
+
+<input type="file" accept="image/*" name="photo"
+class="w-full border rounded-xl p-3 bg-white">
+</div>
+
+<div>
+<label class="block text-sm font-medium mb-1">ID Proof (PDF)</label>
+{% if student.id_proof %}
+<a href="{{ student.id_proof.url }}" target="_blank"
+class="text-blue-600 underline">
+View Current Document
+</a>
+{% endif %}
+<input type="file" accept=".pdf" name="id_proof"
+class="w-full border rounded-xl p-3 bg-white">
+</div>
+
+</div>
+</div>
+
+<!-- Buttons -->
+<div class="flex justify-center space-x-6 pt-6">
+<button type="reset"
+class="px-8 py-3 bg-gray-300 rounded-xl hover:bg-gray-400 transition">
+Reset
+</button>
+
+<button type="submit"
+class="px-10 py-3 bg-gradient-to-r from-primary to-secondary text-white rounded-xl shadow-lg hover:scale-105 transition">
+Confirm
+</button>
+</div>
+
+</form>
+
+</div>
+</div>
+
+</body>
+</html>

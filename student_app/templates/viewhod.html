@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>View HOD | Student Portal</title>
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gradient-to-br from-slate-100 via-sky-50 to-blue-100 flex">
+
+<!-- Background -->
+<div class="fixed inset-0 -z-10">
+<img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+class="w-full h-full object-cover opacity-20">
+</div>
+
+<!-- Sidebar -->
+<aside class="w-64 bg-gradient-to-b from-slate-900 via-indigo-950 to-slate-900 text-gray-200 p-6 min-h-screen shadow-2xl">
+
+<h2 class="text-2xl font-bold mb-10 bg-gradient-to-r from-cyan-400 to-indigo-400 bg-clip-text text-transparent">
+Admin Panel
+</h2>
+
+<ul class="space-y-6">
+
+<li><a href="{% url 'dashboard' %}" class="hover:text-emerald-400 transition">Dashboard</a></li>
+<li><a href="{% url 'student' %}" class="hover:text-emerald-400 transition">Student Management</a></li>
+<li><a href="{% url 'faculty' %}" class="hover:text-emerald-400 transition">Faculty Management</a></li>
+<li><a href="{% url 'course' %}" class="hover:text-emerald-400 transition">Course Management</a></li>
+<li><a href="{% url 'hod' %}" class="text-emerald-400 font-semibold">HOD Management</a></li>
+
+<li class="pt-10 border-t border-gray-600">
+<a href="{% url 'logout' %}" class="hover:text-red-400 transition">Logout</a>
+</li>
+
+</ul>
+</aside>
+
+<!-- Main Content -->
+<div class="flex-1 p-6 max-w-full">
+
+<!-- Header -->
+<div class="flex items-center mb-8">
+<a href="{% url 'hod' %}" class="text-slate-600 hover:text-slate-800 mr-4">
+← Back to HOD List
+</a>
+<h1 class="text-3xl font-bold text-slate-800">HOD Details</h1>
+</div>
+
+<!-- HOD Details Card -->
+<div class="bg-white/80 backdrop-blur-lg rounded-2xl shadow-xl overflow-hidden">
+
+<div class="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-6">
+<div class="flex items-center space-x-4">
+<div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center">
+<span class="text-3xl font-bold">{{ hod.user.get_full_name.0|default:hod.user.username.0|upper }}</span>
+</div>
+<div>
+<h2 class="text-2xl font-bold">{{ hod.user.get_full_name|default:hod.user.username }}</h2>
+<p class="text-emerald-100">Head of Department</p>
+</div>
+</div>
+</div>
+
+<div class="p-8">
+
+<div class="grid md:grid-cols-2 gap-8">
+
+<!-- Personal Information -->
+<div class="space-y-4">
+<h3 class="text-lg font-semibold text-slate-800 border-b pb-2">Personal Information</h3>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Full Name:</span>
+<span class="font-medium text-slate-800">{{ hod.user.get_full_name|default:hod.user.username }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Email:</span>
+<span class="font-medium text-slate-800">{{ hod.user.email }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Phone:</span>
+<span class="font-medium text-slate-800">{{ hod.phone|default:"Not provided" }}</span>
+</div>
+
+</div>
+
+<!-- Professional Information -->
+<div class="space-y-4">
+<h3 class="text-lg font-semibold text-slate-800 border-b pb-2">Professional Information</h3>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Department:</span>
+<span class="font-medium text-slate-800">{{ hod.department.name|default:"Not assigned" }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Office Location:</span>
+<span class="font-medium text-slate-800">{{ hod.office_location|default:"Not provided" }}</span>
+</div>
+
+<div class="flex justify-between py-2">
+<span class="text-slate-600">Joining Date:</span>
+<span class="font-medium text-slate-800">{{ hod.joining_date|date:"d M Y"|default:"Not provided" }}</span>
+</div>
+
+</div>
+
+</div>
+
+<!-- Action Buttons -->
+<div class="flex justify-end space-x-4 mt-8 pt-6 border-t">
+
+<a href="{% url 'hod_edit' hod.id %}" 
+   class="bg-gradient-to-r from-amber-500 to-orange-600 text-white px-6 py-3 rounded-lg hover:scale-105 transition">
+Edit HOD
+</a>
+
+<a href="{% url 'hod_delete' hod.id %}" 
+   class="bg-gradient-to-r from-red-500 to-pink-600 text-white px-6 py-3 rounded-lg hover:scale-105 transition"
+   onclick="return confirm('Are you sure you want to delete this HOD?')">
+Delete HOD
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
